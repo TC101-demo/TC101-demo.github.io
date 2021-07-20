@@ -12,9 +12,9 @@ nav:
   - index.md
   - Newsletters:
     - newsletters/2021-04.md
-  - Datasets:
-    - datasets/sample_dataset.md
-    - datasets/NewDummyDataset.md
+  - "pre-list": aaaaaa/dataset_list.md
+  - "Root list": dataset_list.md  
+  - datasets/dataset_list.md
   - fancy_table_test.md
   - More information:
     - contact.md

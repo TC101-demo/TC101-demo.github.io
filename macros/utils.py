@@ -1,5 +1,7 @@
 import glob
 
+global_render_order = 0
+
 def define_env(env):
     """
     This is the hook for defining variables, macros and filters
@@ -23,4 +25,12 @@ def define_env(env):
         if (root_path.find(sub_str) == -1):
             return False
         return True
+    
+    @env.macro
+    def render_order(extra_str):
+        global global_render_order
+        res_str = f"{extra_str}: {global_render_order}"
+        print(res_str)
+        global_render_order += 1
+        return res_str
 

@@ -6,6 +6,8 @@ categories: test
 excerpt_separator: <!--more-->
 ---
 
+{{ render_order(title) }}
+
 This is a dummy excerpt for the Dummy Dataset 1 created by [TC10][tc10web] and
 [TC11][tc11web].
 

@@ -5,7 +5,7 @@ tags: dummy
 categories: test
 excerpt_separator: <!--more-->
 ---
-
+{{ render_order(page.meta.title) }}
 This is a dummy excerpt for the Dummy Dataset 2 created by [TC10][tc10web] and
 [TC11][tc11web].
 

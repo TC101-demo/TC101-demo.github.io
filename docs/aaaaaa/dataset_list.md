@@ -1,20 +1,21 @@
 ---
-title: Test sample dataset
-tag: dataset_file
+title: "aaa dataset list"
 ---
 
-# Sample dataset
-Do we want datasets here?
+# Dataset list
 
-## List of datasets
+{{ render_order(page.meta.title) }}
 
 {%for pag_file in files._files %}
 {% set pag = pag_file.page %}
 {% if check_substring(pag, datasets) %}
 {{ pag.title }}
+{{ context(pag) | pretty }}
+{{ pag  }}
 {{ pag.meta.tags }}
 {%endif %}
 {%endfor %}
+
 
 
 

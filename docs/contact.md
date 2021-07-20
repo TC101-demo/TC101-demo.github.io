@@ -4,7 +4,7 @@
 TODO add email contact (google group to allow for multiple managers)
 <center>`????(at)googlegroups.com`</center>
 
-
+{{ render_order(title) }}
 ## Subscribe to Updates
 You can **subscribe to our newsletter**
 
