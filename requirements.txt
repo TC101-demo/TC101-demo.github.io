@@ -1,5 +1,0 @@
-mkdocs
-mkdocs-material
-markdown-katex
-fontawesome-markdown
-mkdocs-macros-plugin
