@@ -19,6 +19,9 @@ nav:
     - contact.md
     - 'Twitter TC10': 'https://twitter.com/IAPR_TC10'
     - 'Twitter TC11': 'https://twitter.com/IAPR_TC11'
+plugins:
+  - search
+  - macros
 markdown_extensions:
   - markdown_katex:
       no_inline_svg: True
@@ -26,6 +29,8 @@ markdown_extensions:
       # macro-file: macros.tex
   - attr_list
   - fontawesome_markdown
+extra:
+    datasets: _datasets/
 strict: true
 # new analytics
 # google_analytics: ['G-????????', '????DOMAIN????']
