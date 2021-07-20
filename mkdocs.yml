@@ -1,0 +1,30 @@
+site_name: Test website for IAPR TC11
+repo_url: https://github.com/IAPR-TC11/test_website
+site_description: Test website.
+site_author: IAPR TC11 officers
+theme:
+    name: material
+    logo: img/200px-Tc-11_Logo_v2_72dpi.png
+    # collapse_navigation: true
+    custom_dir: theme_customizations
+edit_uri: edit/main/docs/
+nav:
+  - index.md
+  - Newsletters:
+    - newsletters/2021-04.md
+  - Datasets:
+    - datasets/sample_dataset.md
+  - More information:
+    - contact.md
+    # - 'Issue Tracker (external)': 'https://github.com/icdar21-mapseg/icdar21-mapseg.github.io/issues'
+    - 'Twitter': 'https://twitter.com/IAPR_TC11'
+markdown_extensions:
+  - markdown_katex:
+      no_inline_svg: True
+      insert_fonts_css: True
+      # macro-file: macros.tex
+  - attr_list
+  - fontawesome_markdown
+strict: true
+# new analytics
+# google_analytics: ['G-????????', '????DOMAIN????']
