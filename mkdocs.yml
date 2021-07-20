@@ -1,5 +1,5 @@
 site_name: Test website for IAPR TC11
-repo_url: https://github.com/IAPR-TC11/test_website
+repo_url: https://github.com/TC101-demo/TC101-demo.github.io
 site_description: Test website.
 site_author: IAPR TC11 officers
 theme:
@@ -16,8 +16,8 @@ nav:
     - datasets/sample_dataset.md
   - More information:
     - contact.md
-    # - 'Issue Tracker (external)': 'https://github.com/icdar21-mapseg/icdar21-mapseg.github.io/issues'
-    - 'Twitter': 'https://twitter.com/IAPR_TC11'
+    - 'Twitter TC10': 'https://twitter.com/IAPR_TC10'
+    - 'Twitter TC11': 'https://twitter.com/IAPR_TC11'
 markdown_extensions:
   - markdown_katex:
       no_inline_svg: True
