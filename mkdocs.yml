@@ -21,7 +21,8 @@ nav:
     - 'Twitter TC11': 'https://twitter.com/IAPR_TC11'
 plugins:
   - search
-  - macros
+  - macros:
+      module_name: macros/utils
 markdown_extensions:
   - markdown_katex:
       no_inline_svg: True

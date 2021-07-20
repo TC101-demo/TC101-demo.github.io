@@ -1,7 +1,7 @@
 ---
-title: Dummy Dataset 1
+title: Dummy Test 3
 layout: default
-tags: dummy
+tags: dummy_test
 categories: test
 excerpt_separator: <!--more-->
 ---
