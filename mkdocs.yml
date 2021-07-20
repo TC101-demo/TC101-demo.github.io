@@ -14,6 +14,7 @@ nav:
     - newsletters/2021-04.md
   - Datasets:
     - datasets/sample_dataset.md
+    - datasets/NewDummyDataset.md
   - More information:
     - contact.md
     - 'Twitter TC10': 'https://twitter.com/IAPR_TC10'
