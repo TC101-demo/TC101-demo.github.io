@@ -14,6 +14,3 @@ and the website is automatically updated.
 
 There is no hosting fees, no limits on the number of collaborators, and a great potential for automation.
 Also, anyone can suggest changes, and managers can review and eventually accept them with a couple of clicks.
-
-
-**Where/how should we list datasets?**
