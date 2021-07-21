@@ -23,9 +23,12 @@ This initiative is not restricted to datasets. We are interested in archiving on
 <h1>Dataset list</h1>
 
 {% for dataset in site.dataset_collection %}
-    <h2><a href="{{ dataset.url  }}">{{ dataset.title  }}</a></h2>
-    {{ dataset.excerpt }} <a href="{{ dataset.url }}">(continue reading...)</a>
+    <div class="dataset_card">
+        <div class="dataset_container">
+            <h2><a href="{{ dataset.url  }}">{{ dataset.title  }}</a></h2>
+            {{ dataset.excerpt }} <a href="{{ dataset.url }}">(continue reading...)</a>
+        </div>
+    </div>
+    </br>
+    </br>
 {% endfor %}
-
-</br>
-</br>
