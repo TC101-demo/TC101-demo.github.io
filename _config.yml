@@ -20,7 +20,6 @@ github_username:  tc101-demo
 include:
   - .htaccess
   - _pages
-  - _dataset_collection
 
 sass:
   sass_dir: _sass
@@ -46,4 +45,6 @@ kramdown:
 
 collections:
   dataset_collection:
+    output: true
+  news:
     output: true

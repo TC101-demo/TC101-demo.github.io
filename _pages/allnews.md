@@ -1,14 +1,13 @@
 ---
 title: "News"
 layout: textlay
-excerpt: "Intelligent Reading Systems at Computer Vision Center."
 sitemap: false
 permalink: /allnews.html
 ---
 
 # News
 
-{% for article in site.data.news %}
+{% for article in site.news %}
 <p>{{ article.date }} <br>
-<em>{{ article.headline }}</em></p>
+<em><a href="{{ site.url }}{{ site.baseurl }}{{article.url}}">{{ article.title }}</a></em></p>
 {% endfor %}
