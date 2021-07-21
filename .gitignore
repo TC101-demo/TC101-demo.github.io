@@ -1,0 +1,8 @@
+# Jekyll output directory
+_site/
+
+# Jekyll cache
+.jekyll-cache/
+
+# vscode config
+.vscode/
