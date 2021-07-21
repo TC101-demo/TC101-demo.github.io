@@ -1,0 +1,18 @@
+---
+title: "Intelligent Reading Systems - Team"
+layout: gridlay
+excerpt_separator: <!--more-->
+sitemap: false
+permalink: /datasets/
+---
+
+Description acting also as excerpt
+
+<!--more-->
+
+## Dataset list
+
+{% for dataset in site.dataset_collection %}
+    <h2><a href="{{ dataset.url  }}">{{ dataset.title  }}</a></h2>
+    {{ dataset.excerpt }} <a href="{{ dataset.url }}">(continue reading...)</a>
+{% endfor %}
