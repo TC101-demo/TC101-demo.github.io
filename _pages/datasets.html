@@ -6,14 +6,26 @@ sitemap: false
 permalink: /datasets/
 ---
 
-Description acting also as excerpt
+To verify results and create novel research, it is extremely important for the Document Image Analysis and Recognition (DIAR) community to be able to cross check and reproduce results described in published papers in the field. In order to achieve this, any datasets used as the basis for publications should be publicly available, as is the norm in many other disciplines.
+
+</br>
+</br>
+
+Authors are actively encouraged to submit the datasets they used to train and/or evaluate their algorithms to their TC(s) in order for them to be published on the corresponding Web sites.
+
+</br>
+</br>
+
+This initiative is not restricted to datasets. We are interested in archiving online any piece of data (ground-truth data, software, etc.) which would allow to easily reproduce results, set new targets, foster healthy competition, encourage collaboration and generally advance the DIAR field as a whole.
 
 <!--more-->
 
-## Dataset list
+<h1>Dataset list</h1>
 
 {% for dataset in site.dataset_collection %}
     <h2><a href="{{ dataset.url  }}">{{ dataset.title  }}</a></h2>
     {{ dataset.excerpt }} <a href="{{ dataset.url }}">(continue reading...)</a>
 {% endfor %}
 
+</br>
+</br>
