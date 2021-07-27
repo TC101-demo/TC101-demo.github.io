@@ -11,31 +11,47 @@ publication: icdar_2021  # there should be an official list of publication ids
 title: ICDAR 2021 Competition on Historical Map Segmentation
 submission_date: 2021-05-27
 version: 1
-contact_author: Joseph Chazalon <joseph.chazalon(at)lrde.epita.fr >, EPITA Research and Development Laboratory
+authors: 
+  - name: 'Joseph Chazalon'
+    email: 'joseph.chazalon(at)lrde.epita.fr'
+    affiliation: 'EPITA Research and Development Laboratory'
+    website: 'https://jchazalon.github.io/'
+    orcid: '0000-0002-3757-074X'
+  - name: 'Edwin Carlinet'
+    email: 'edwin.carlinet(at)lrde.epita.fr'
+    affiliation: 'EPITA Research and Development Laboratory'
 # See https://spdx.org/licenses/ to indicate the proper Identifier
-license: CC-BY-3.0
+license: 
+  identifier: 'CC-BY-4.0'
+  name: 'Creative Commons Attribution 4.0 International'
+  url_terms: 'https://creativecommons.org/licenses/by/4.0/legalcode'
 keywords:  # Much like tags?
     - 'historical maps'
     - 'vectorization'
     - 'segmentation'
+    - 'segment detection'
 # Render this automatically in a side bar in the 'dataset' template?
 downloads:
-    - 'icdar21-mapseg-v1.0.0-full-20210527a.tar.gz':
-      - url: 'https://zenodo.org/record/4817662/files/icdar21-mapseg-v1.0.0-full-20210527a.tar.gz?download=1'
-      - type: dataset
-      - size: '1.9 GB'
-      - description: 'Full train, validation and test dataset with ground truth'
-      - md5sum: '82f1654d2395d3e65979191f0e80f20d'
-    - 'competition-report.pdf':
-      - url: 'https://arxiv.org/abs/2105.13265'
-      - type: paper
-      - description: 'Competition report'
-    - 'icdar21-mapseg/icdar21-mapseg-eval-1.0.4.zip':
-      - url: 'https://zenodo.org/record/4818401/files/icdar21-mapseg/icdar21-mapseg-eval-1.0.4.zip?download=1'
-      - type: code
-      - size: '305.9 kB'
-      - description: 'Code for evaluation tools'
-      - md5sum: '44b70e7bed9b166f5b38e7fce5f68ad0'
+    - filename: 'icdar21-mapseg-v1.0.0-full-20210527a.tar.gz'
+      urls: 
+        - 'https://zenodo.org/record/4817662/files/icdar21-mapseg-v1.0.0-full-20210527a.tar.gz?download=1'
+      type: dataset
+      dl_size: '1.9 GB'
+      description: 'Full train, validation and test dataset with ground truth'
+      md5sum: '82f1654d2395d3e65979191f0e80f20d'
+    - filename: 'competition-report.pdf'
+      urls: 
+        - 'https://arxiv.org/abs/2105.13265'
+      type: paper
+      description: 'Competition report'
+    - filename: 'icdar21-mapseg/icdar21-mapseg-eval-1.0.4.zip'
+      urls: 
+        - 'https://zenodo.org/record/4818401/files/icdar21-mapseg/icdar21-mapseg-eval-1.0.4.zip?download=1'
+        - 'https://github.com/icdar21-mapseg/icdar21-mapseg-eval/archive/refs/tags/1.0.4.zip'
+      type: code
+      dl_size: '305.9 kB'
+      description: 'Code for evaluation tools'
+      md5sum: '44b70e7bed9b166f5b38e7fce5f68ad0'
 thumbnail: 'images/MapSeg21_1/177.jpg'
 # First paragraph by default, should we keep this?
 excerpt_separator: <!--more-->
@@ -43,14 +59,10 @@ excerpt_separator: <!--more-->
 
 This is the dataset of the ICDAR 2021 Competition on Historical Map Segmentation (“MapSeg”).
 <!--more-->
-
-## Dataset Information
-
-This is the dataset of the ICDAR 2021 Competition on Historical Map Segmentation (“MapSeg”).
 This competition ran from November 2020 to April 2021.
 Evaluation tools are included.
 
-Official competition website: https://icdar21-mapseg.github.io/
+Official competition website: [icdar21-mapseg.github.io](https://icdar21-mapseg.github.io/)
 
 ### Citing
 The competition report can be cited as:

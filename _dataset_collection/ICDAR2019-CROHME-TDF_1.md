@@ -11,9 +11,15 @@ publication: icdar_2019  # there should be an official list of publication ids
 title: ICDAR 2019 Competition on Recognition of Handwritten Mathematical Expressions and Typeset Formula Detection
 submission_date: 2020-01-29
 version: 1
-contact_author: Harold Mouchère <harold.mouchere(at)univ-nantes.fr>, LS2N / Université de Nantes
+authors: 
+    - name: 'Harold Mouchère'
+      email: 'harold.mouchere(at)univ-nantes.fr'
+      affiliation: 'LS2N / Université de Nantes'
 # See https://spdx.org/licenses/ to indicate the proper Identifier
-license: CC-BY-NC-SA-3.0
+license: 
+    name: 'Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported'
+    identifier: 'CC-BY-NC-SA-3.0'
+    url_terms: 'https://creativecommons.org/licenses/by-nc-sa/3.0/'
 keywords:  # Much like tags?
     - 'Math Expression Recognition'
     - 'Handwritten'
@@ -21,11 +27,12 @@ keywords:  # Much like tags?
     - 'Detection'
 # Render this automatically in a side bar in the 'dataset' template?
 downloads:
-    - 'TC11_package_CROHME2019.zip':
-      - url: 'http://tc11.cvc.uab.es/index.php?com=upload&action=file_down&section=dataset&section_id=270&file=237'
-      - type: 'other'
-      - size: '364 MB'
-      - description: 'Zip file with data, tools and papers'
+    - filename: 'TC11_package_CROHME2019.zip'
+      urls: 
+        - 'http://tc11.cvc.uab.es/index.php?com=upload&action=file_down&section=dataset&section_id=270&file=237'
+      type: 'other'
+      dl_size: '364 MB'
+      description: 'Zip file with data, tools and papers'
 thumbnail: 'images/ICDAR2019-CROHME-TDF_1/146.jpg'
 # First paragraph by default, should we keep this?
 excerpt_separator: <!--more-->
