@@ -107,5 +107,13 @@ firstp {
 /* Add some padding inside the card container */
 .dataset_container {
   padding: 2px 16px;
+  min-height: 100px;
+  overflow: hidden;
 }
 
+.img {
+    width:auto !important;
+    max-width: 90%;
+    height:auto;
+    vertical-align: middle;
+}

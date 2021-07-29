@@ -26,7 +26,34 @@ This initiative is not restricted to datasets. We are interested in archiving on
     <div class="dataset_card">
         <div class="dataset_container">
             <h2><a href="{{ dataset.url  }}">{{ dataset.title  }}</a></h2>
-            {{ dataset.excerpt }} <a href="{{ dataset.url }}">(continue reading...)</a>
+            <div style="display: flex; height:auto; align-items: center; min-height: 50px;">
+            {% if dataset.thumbnail %}
+            <div style="width: 25%; float:left; vertical-align: middle;">
+            <img src="{{dataset.thumbnail | relative_url}}" class="img" alt="Dataset illustration">
+            </div>
+            {% endif %}
+            <span style="vertical-align: middle;">{{ dataset.excerpt }}</span>
+            </div>
+            <div style="width: 100%; float:left;">
+            {% if dataset.topic %}
+            <p class="post-meta">
+            <b>Topics</b>: <span itemprop="topic">{{ dataset.topic }}</span>
+            </p>
+            {% endif %}
+            {% if dataset.keywords %}
+            <p class="post-meta">
+            <b>Keywords</b>: <span itemprop="keywords">{{ dataset.keywords | array_to_sentence_string: "" }}</span>
+            </p>
+            {% endif %}
+            {% if dataset.license %}
+            <p class="post-meta">
+            <b>License</b>: <a href="{{ dataset.license.url_terms }}"><span itemprop="license">{{ dataset.license.name }}</span></a>
+            {% if dataset.license.identifier %}
+            (<a href="https://spdx.org/licenses/{{ dataset.license.identifier }}.html"><span>{{ dataset.license.identifier }}</span></a>)
+            {% endif %}
+            </p>
+            {% endif %}
+            </div>
         </div>
     </div>
     </br>

@@ -15,7 +15,7 @@ layout: default
         version <span itemprop="version">{{ page.version }}</span>
     </p>
     <p class="post-meta">
-      Authors:
+    <b>Authors</b>:
       <ul>
         {% for author in page.authors %}
         <li>
@@ -32,12 +32,12 @@ layout: default
     </p>
     {% if page.keywords %}
     <p class="post-meta">
-      Keywords: <span itemprop="keywords">{{ page.keywords | array_to_sentence_string: "" }}</span>
+    <b>Keywords</b>: <span itemprop="keywords">{{ page.keywords | array_to_sentence_string: "" }}</span>
     </p>
     {% endif %}
     {% if page.license %}
     <p class="post-meta">
-      License: <a href="{{ page.license.url_terms }}"><span itemprop="license">{{ page.license.name }}</span></a>
+     <b>License</b>: <a href="{{ page.license.url_terms }}"><span itemprop="license">{{ page.license.name }}</span></a>
       {% if page.license.identifier %}
       (<a href="https://spdx.org/licenses/{{ page.license.identifier }}.html"><span>{{ page.license.identifier }}</span></a>)
       {% endif %}
