@@ -34,12 +34,11 @@ downloads:
       dl_size: '364 MB'
       description: 'Zip file with data, tools and papers'
 thumbnail: 'images/ICDAR2019-CROHME-TDF_1/146.jpg'
-# First paragraph by default, should we keep this?
-excerpt_separator: <!--more-->
+dataset_id: 'crohme19'
+abstract: 'This package provides training and test data from the competitions CROHME 2011, 2012, 2013, 2014, 2016 and 2019.'
 ---
 
 This package provides training and test data from the competitions CROHME 2011, 2012, 2013, 2014, 2016 and 2019.
-<!--more-->
 
 ## Dataset Information
 
