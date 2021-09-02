@@ -1,0 +1,13 @@
+docs:
+
+- title: "Home"
+  url: ""
+
+- title: "Datasets"
+  url: "datasets"
+
+- title: "Tools"
+  url: "tools"
+
+- title: "<mark>Submit new items</mark>"
+  url: "submit"

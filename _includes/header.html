@@ -12,11 +12,9 @@
 	</div>
 	<div class="collapse navbar-collapse" id="navbar-collapse-1">
 	  <ul class="nav navbar-nav navbar-right">
-		<li><a href="{{ site.url }}{{ site.baseurl }}/">Home</a></li>
-		<li><a href="{{ site.url }}{{ site.baseurl }}/datasets">Datasets</a></li>
-		<li><a href="{{ site.url }}{{ site.baseurl }}/tools">Tools</a></li>
-		<!--<li><a href="{{ site.url }}{{ site.baseurl }}/submit"><button type="button" class="btn btn-primary">Submit new</button></a></li>-->
-		<li><a href="{{ site.url }}{{ site.baseurl }}/submit"><mark>Submit new items</mark></a></li>
+		{% for item in site.data.navigation.docs %}
+		<li><a href="{{ site.url }}{{ site.baseurl }}/{{ item.url }}">{{ item.title }}</a></li>
+	 	{% endfor %}
 	  </ul>
 	</div>
   </div>
