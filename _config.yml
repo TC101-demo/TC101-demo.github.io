@@ -43,14 +43,6 @@ kramdown:
   enable_coderay: false
   parse_block_html: true # default for kramdown is false. This will enable using Markdown links
 
-defaults:
-  - 
-    scope: 
-      path: "_datasets/"
-    values:
-      layout: dataset_page
-      
-
 
 collections:
   datasets:
@@ -59,3 +51,20 @@ collections:
     # layout: dataset
   news:
     output: true
+
+# Default layout cannot be configured in 'collections' variable apparently,
+# so we use defaults instead to avoid specifying the layout in the front matter
+# of each dataset page
+defaults:
+  - 
+    scope: 
+      path: "_datasets/"
+    values:
+      layout: dataset_page
+
+# Custom variables
+# =====================================================================
+# (Can be used in templates using 'site.[VARIABLE]'.)
+
+# Used to generate "Edit this page" links
+github_edit_base_url: https://github.com/TC101-demo/TC101-demo.github.io/edit/master/
