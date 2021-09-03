@@ -1,24 +1,10 @@
 ---
-# There may be a hierarchical browsing available at some point.
-# The order of the categories is important.
-categories:
-  - "Graphical Documents"
-  - "Maps"
-publication: icdar_2021  # there should be an official list of publication ids
 title: ICDAR 2021 Competition on Historical Map Segmentation
-dataset_id: 'mapseg21'
-version: 1
+thumbnail: 'images/MapSeg21_1/177.jpg'
+abstract: 'This is the dataset of the ICDAR 2021 Competition on Historical Map Segmentation (“MapSeg”).'
 submission_date: 2021-05-27
-# See https://spdx.org/licenses/ to indicate the proper Identifier
-license: 
-  identifier: 'CC-BY-4.0'
-  name: 'Creative Commons Attribution 4.0 International'
-  url_terms: 'https://creativecommons.org/licenses/by/4.0/legalcode'
-tags:
-    - 'historical maps'
-    - 'vectorization'
-    - 'segmentation'
-    - 'segment detection'
+version: 1
+publication: icdar_2021  # there should be an official list of publication ids
 authors: 
   - name: 'Joseph Chazalon'
     email: 'joseph.chazalon(at)lrde.epita.fr'
@@ -28,30 +14,44 @@ authors:
   - name: 'Edwin Carlinet'
     email: 'edwin.carlinet(at)lrde.epita.fr'
     affiliation: 'EPITA Research and Development Laboratory'
-# Render this automatically in a side bar in the 'dataset' template?
+# There may be a hierarchical browsing available at some point.
+# The order of the categories is important.
+categories:
+  - "Graphical Documents"
+  - "Maps"
+# Tags are unordered
+tags:
+  - 'historical maps'
+  - 'vectorization'
+  - 'segmentation'
+  - 'segment detection'
+license: 
+  # See https://spdx.org/licenses/ to indicate the proper Identifier
+  identifier: 'CC-BY-4.0'
+  name: 'Creative Commons Attribution 4.0 International'
+  url_terms: 'https://creativecommons.org/licenses/by/4.0/legalcode'
 downloads:
-    - filename: 'icdar21-mapseg-v1.0.0-full-20210527a.tar.gz'
-      urls: 
-        - 'https://zenodo.org/record/4817662/files/icdar21-mapseg-v1.0.0-full-20210527a.tar.gz?download=1'
-      type: dataset
-      dl_size: '1.9 GB'
-      description: 'Full train, validation and test dataset with ground truth'
-      md5sum: '82f1654d2395d3e65979191f0e80f20d'
-    - filename: 'competition-report.pdf'
-      urls: 
-        - 'https://arxiv.org/abs/2105.13265'
-      type: paper
-      description: 'Competition report'
-    - filename: 'icdar21-mapseg/icdar21-mapseg-eval-1.0.4.zip'
-      urls: 
-        - 'https://zenodo.org/record/4818401/files/icdar21-mapseg/icdar21-mapseg-eval-1.0.4.zip?download=1'
-        - 'https://github.com/icdar21-mapseg/icdar21-mapseg-eval/archive/refs/tags/1.0.4.zip'
-      type: code
-      dl_size: '305.9 kB'
-      description: 'Code for evaluation tools'
-      md5sum: '44b70e7bed9b166f5b38e7fce5f68ad0'
-thumbnail: 'images/MapSeg21_1/177.jpg'
-abstract: 'This is the dataset of the ICDAR 2021 Competition on Historical Map Segmentation (“MapSeg”).'
+  - filename: 'icdar21-mapseg-v1.0.0-full-20210527a.tar.gz'
+    urls: 
+      # You can provide multiple URLs (mirrors) for the exact same file
+      - 'https://zenodo.org/record/4817662/files/icdar21-mapseg-v1.0.0-full-20210527a.tar.gz?download=1'
+    type: dataset  # no constraint for now - not really used
+    dl_size: '1.9 GB'
+    description: 'Full train, validation and test dataset with ground truth'
+    md5sum: '82f1654d2395d3e65979191f0e80f20d'  # optional, use 'md5sum $file' to generate
+  - filename: 'competition-report.pdf'
+    urls: 
+      - 'https://arxiv.org/abs/2105.13265'
+    type: paper
+    description: 'Competition report'
+  - filename: 'icdar21-mapseg/icdar21-mapseg-eval-1.0.4.zip'
+    urls: 
+      - 'https://zenodo.org/record/4818401/files/icdar21-mapseg/icdar21-mapseg-eval-1.0.4.zip?download=1'
+      - 'https://github.com/icdar21-mapseg/icdar21-mapseg-eval/archive/refs/tags/1.0.4.zip'
+    type: code
+    dl_size: '305.9 kB'
+    description: 'Code for evaluation tools'
+    md5sum: '44b70e7bed9b166f5b38e7fce5f68ad0'
 ---
 
 This is the dataset of the ICDAR 2021 Competition on Historical Map Segmentation (“MapSeg”).

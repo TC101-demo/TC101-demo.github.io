@@ -28,7 +28,7 @@ This initiative is not restricted to datasets. We are interested in archiving on
 <h2>Dataset list</h2>
 
 {% for dataset in site.datasets %}
-    <div id="{{ dataset.dataset_id }}"></div>
+    <div id="{{ dataset.slug }}"></div>
 {% endfor %}
 
 
@@ -55,7 +55,7 @@ function addFilteredElements() {
     
     {% for dataset in site.datasets %}
         if (query == null || query == '' || {{ dataset.tags | jsonify }}.includes(query)) {
-            element = document.getElementById('{{ dataset.dataset_id }}');
+            element = document.getElementById('{{ dataset.slug }}');
             element.innerHTML = '<div class="dataset_card">\
         			  <div class="dataset_container media"}">\
             			  <div class="media-top">\

@@ -1,47 +1,46 @@
 ---
+title: ICDAR 2019 Competition on Recognition of Handwritten Mathematical Expressions and Typeset Formula Detection
+thumbnail: 'images/ICDAR2019-CROHME-TDF_1/146.jpg'
+abstract: 'This package provides training and test data from the competitions CROHME 2011, 2012, 2013, 2014, 2016 and 2019.'
+submission_date: 2020-01-29
+version: 1
+publication: icdar_2019  # there should be an official list of publication ids
+authors: 
+  - name: 'Harold Mouchère'
+    email: 'harold.mouchere(at)univ-nantes.fr'
+    affiliation: 'LS2N / Université de Nantes'
 # There may be a hierarchical browsing available at some point.
 # The order of the categories is important.
 categories: 
-    - "Graphical Documents"
-    - "Handwritten Documents"
-    - "On-line and Off-line"
-publication: icdar_2019  # there should be an official list of publication ids
-title: ICDAR 2019 Competition on Recognition of Handwritten Mathematical Expressions and Typeset Formula Detection
-dataset_id: 'crohme19'
-submission_date: 2020-01-29
-version: 1
-authors: 
-    - name: 'Harold Mouchère'
-      email: 'harold.mouchere(at)univ-nantes.fr'
-      affiliation: 'LS2N / Université de Nantes'
-# See https://spdx.org/licenses/ to indicate the proper Identifier
-license: 
-    name: 'Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported'
-    identifier: 'CC-BY-NC-SA-3.0'
-    url_terms: 'https://creativecommons.org/licenses/by-nc-sa/3.0/'
+  - "Graphical Documents"
+  - "Handwritten Documents"
+  - "On-line and Off-line"
+# Tags are unordered
 tags:
-    - 'Math Expression Recognition'
-    - 'Handwritten'
-    - 'Typeset formula'
-    - 'Detection'
+  - 'Math Expression Recognition'
+  - 'Handwritten'
+  - 'Typeset formula'
+  - 'Detection'
+license: 
+  # See https://spdx.org/licenses/ to indicate the proper Identifier
+  name: 'Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported'
+  identifier: 'CC-BY-NC-SA-3.0'
+  url_terms: 'https://creativecommons.org/licenses/by-nc-sa/3.0/'
 # Render this automatically in a side bar in the 'dataset' template?
 downloads:
-    - filename: 'TC11_package_CROHME2019.zip'
-      urls: 
-        - 'http://tc11.cvc.uab.es/index.php?com=upload&action=file_down&section=dataset&section_id=270&file=237'
-      type: 'other'
-      dl_size: '364 MB'
-      description: 'Zip file with data, tools and papers'
-thumbnail: 'images/ICDAR2019-CROHME-TDF_1/146.jpg'
-abstract: 'This package provides training and test data from the competitions CROHME 2011, 2012, 2013, 2014, 2016 and 2019.'
+  - filename: 'TC11_package_CROHME2019.zip'
+    urls: 
+      - 'http://tc11.cvc.uab.es/index.php?com=upload&action=file_down&section=dataset&section_id=270&file=237'
+    type: 'other'
+    dl_size: '364 MB'
+    description: 'Zip file with data, tools and papers'
 ---
 
 This package provides training and test data from the competitions CROHME 2011, 2012, 2013, 2014, 2016 and 2019.
 
 ## Dataset Information
 
-This is a dummy description for the Dataset 1. That it can be longer than the
-provided excerpt and give more details.
+This is a dummy description for the Dataset 1. That it can be longer than the provided excerpt and give more details.
 
 
 ## Ground Truth
