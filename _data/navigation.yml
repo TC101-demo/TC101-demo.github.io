@@ -6,8 +6,8 @@ docs:
 - title: "Datasets"
   url: "datasets"
 
-- title: "Tools"
-  url: "tools"
+- title: "Software"
+  url: "software"
 
 - title: "<mark>Submit new items</mark>"
   url: "submit"
