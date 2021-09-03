@@ -3,6 +3,9 @@ docs:
 - title: "Home"
   url: ""
 
+- title: "<mark>Send feedback</mark>"
+  url: "feedback_form"
+
 - title: "Datasets"
   url: "datasets"
 
