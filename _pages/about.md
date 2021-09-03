@@ -1,9 +1,9 @@
 ---
 title: "Intelligent Reading Systems"
-layout: textlay
+layout: text
 excerpt: "Intelligent Reading Systems"
 sitemap: false
-permalink: /aboutwebsite.html
+permalink: /about/
 ---
 
 # Use this website as a template for your academic research group

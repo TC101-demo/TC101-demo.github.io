@@ -48,7 +48,7 @@ defaults:
     scope: 
       path: "_datasets/"
     values:
-      layout: dataset_page_layout
+      layout: dataset_page
       
 
 

@@ -1,6 +1,6 @@
 ---
 title: "IAPR TC10/11 Resource website"
-layout: homelay
+layout: home
 sitemap: false
 permalink: /
 ---

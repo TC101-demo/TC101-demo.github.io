@@ -1,6 +1,6 @@
 ---
 title: "Submit new item"
-layout: textlay
+layout: text
 excerpt: "Submit new items to our listing using this webpage."
 sitemap: false
 permalink: /submit
