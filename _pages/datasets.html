@@ -6,26 +6,7 @@ sitemap: false
 permalink: /datasets/
 ---
 
-To verify results and create novel research, it is extremely important for the Document Image Analysis and Recognition (DIAR) community to be able to cross check and reproduce results described in published papers in the field. In order to achieve this, any datasets used as the basis for publications should be publicly available, as is the norm in many other disciplines.
-
-</br>
-</br>
-
-Authors are actively encouraged to submit the datasets they used to train and/or evaluate their algorithms to their TC(s) in order for them to be published on the corresponding Web sites.
-
-</br>
-</br>
-
-This initiative is not restricted to datasets. We are interested in archiving online any piece of data (ground-truth data, software, etc.) which would allow to easily reproduce results, set new targets, foster healthy competition, encourage collaboration and generally advance the DIAR field as a whole.
-
-</br>
-</br>
-
-**Important: we do not host datasets on this website**, so please help us keep this listing up to date and **report any broken link!**
-
-<!--more-->
-
-<h2>Dataset list</h2>
+<h1>Dataset List</h1>
 
 {% for dataset in site.datasets %}
     <div id="{{ dataset.slug }}"></div>
@@ -48,7 +29,6 @@ function getQueryVariable(variable) {
     }
     return ''
   }
-  
 
 function addFilteredElements() {
     var query = getQueryVariable('tag');
@@ -56,46 +36,11 @@ function addFilteredElements() {
     {% for dataset in site.datasets %}
         if (query == null || query == '' || {{ dataset.tags | jsonify }}.includes(query)) {
             element = document.getElementById('{{ dataset.slug }}');
-            element.innerHTML = '<div class="dataset_card">\
-        			  <div class="dataset_container media"}">\
-            			  <div class="media-top">\
-            			      {% if dataset.thumbnail %}\
-			              <a href="{{ dataset.url }}">\
-				          <img src="{{dataset.thumbnail | relative_url}}" class="media-object" alt="Dataset illustration" style="margin-left: auto; margin-right: auto;">\
-				       </a>\
-				       {% endif %}\
-				  </div>\
-				  <div class="media-body">\
-				      <a href="{{ dataset.url  }}">\
-					  <h4 class="media-heading">{{ dataset.title }}</h4>\
-				      </a>\
-				      <em style="vertical-align: middle;">{{ dataset.abstract }}</em>\
-				      {% if dataset.topic %}\
-					  <p class="post-meta">\
-					  <b>Topics</b>: <span itemprop="topic">{{ dataset.topic }}</span>\
-					  </p>\
-					  {% endif %}\
-					  {% if dataset.tags %}\
-					  <p class="post-meta">\
-					  <b>Keywords</b>: <span itemprop="keywords">{{ dataset.tags | array_to_sentence_string: "" }}</span>\
-					  </p>\
-					  {% endif %}\
-					  {% if dataset.license %}\
-					  <p class="post-meta">\
-					  <b>License</b>: <a href="{{ dataset.license.url_terms }}"><span itemprop="license">{{ dataset.license.name }}</span></a>\
-					  {% if dataset.license.identifier %}\
-					  (<a href="https://spdx.org/licenses/{{ dataset.license.identifier }}.html"><span>{{ dataset.license.identifier }}</span></a>)\
-					  {% endif %}\
-					  </p>\
-					  {% endif %}\
-				  </div>\
-				  </div>\
-				  </div>\
-				  <br>\
-				  <br>';
+            element.innerHTML = '{% include dataset_summary_card.html %}';
 				}
 	{% endfor %}
 }
- addFilteredElements();
+
+addFilteredElements();
 </script>
 

@@ -1,0 +1,43 @@
+<div class="dataset_card">\
+    <div class="dataset_container media">\
+        <div class="media-top">\
+            {% if dataset.thumbnail %}\
+        <a href="{{ dataset.url }}">\
+        <img src="{{dataset.thumbnail | relative_url}}" class="media-object" alt="Dataset illustration" style="margin-left: auto; margin-right: auto;">\
+     </a>\
+     {% endif %}\
+</div>\
+<div class="media-body">\
+    <a href="{{ dataset.url  }}">\
+    <h4 class="media-heading">{{ dataset.title }}</h4>\
+    </a>\
+    <em style="vertical-align: middle;">{{ dataset.abstract }}</em>\
+    {% if dataset.topic %}\
+    <p class="post-meta">\
+    <b>Topics</b>: <span itemprop="topic">{{ dataset.topic }}</span>\
+    </p>\
+    {% endif %}\
+    {% if dataset.tags %}\
+    <p class="post-meta">\
+    <b>Keywords</b>:\
+        <span itemprop="keywords">\
+        {% assign tags_sorted = dataset.tags | sort %}\
+        {% for tag in tags_sorted %}\
+        <a class="btn btn-default btn-xs" href="?tag={{ tag }}" role="button">{{ tag }}</a>\
+        {% endfor %}\
+        </span>\
+    </p>\
+    {% endif %}\
+    {% if dataset.license %}\
+    <p class="post-meta">\
+    <b>License</b>: <a href="{{ dataset.license.url_terms }}"><span itemprop="license">{{ dataset.license.name }}</span></a>\
+    {% if dataset.license.identifier %}\
+    (<a href="https://spdx.org/licenses/{{ dataset.license.identifier }}.html"><span>{{ dataset.license.identifier }}</span></a>)\
+    {% endif %}\
+    </p>\
+    {% endif %}\
+</div>\
+</div>\
+</div>\
+<br>\
+<br>

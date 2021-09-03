@@ -22,8 +22,8 @@
 <h4>All tags</h4>
 
 <p>
-  {% for tag in topics %}
-  <a class="btn btn-default" role="button" href="{{ site.url }}{{ site.baseurl }}?tag={{tag}}">{{ tag }}</a>
+  {% for tag in topics | sort %}
+  <a class="btn btn-default btn-xs" role="button" href="{{ site.url }}{{ site.baseurl }}?tag={{tag}}">{{ tag }}</a>
   {% endfor %}
 </p>
 
