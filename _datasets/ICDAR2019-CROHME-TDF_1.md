@@ -1,14 +1,13 @@
 ---
-# Should we try to make the layout definition implicit?
-layout: dataset
-# Is this necessary? Should we put the topics and publications instead?
-categories: dataset
-# In the 2020 TC11 website, there is only 1 "topic", but "topics" are arranged in a hierarchical way, like a taxonomy
-# Topic and publication are usually set by the curator in the 2020 TC11 website
-# There may be a page for each topic / publication to describe them (with pictures)
-topic: "Graphical Documents::Handwritten Documents::On-line and Off-line"
+# There may be a hierarchical browsing available at some point.
+# The order of the categories is important.
+categories: 
+    - "Graphical Documents"
+    - "Handwritten Documents"
+    - "On-line and Off-line"
 publication: icdar_2019  # there should be an official list of publication ids
 title: ICDAR 2019 Competition on Recognition of Handwritten Mathematical Expressions and Typeset Formula Detection
+dataset_id: 'crohme19'
 submission_date: 2020-01-29
 version: 1
 authors: 
@@ -20,7 +19,7 @@ license:
     name: 'Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported'
     identifier: 'CC-BY-NC-SA-3.0'
     url_terms: 'https://creativecommons.org/licenses/by-nc-sa/3.0/'
-keywords:  # Much like tags?
+tags:
     - 'Math Expression Recognition'
     - 'Handwritten'
     - 'Typeset formula'
@@ -34,7 +33,6 @@ downloads:
       dl_size: '364 MB'
       description: 'Zip file with data, tools and papers'
 thumbnail: 'images/ICDAR2019-CROHME-TDF_1/146.jpg'
-dataset_id: 'crohme19'
 abstract: 'This package provides training and test data from the competitions CROHME 2011, 2012, 2013, 2014, 2016 and 2019.'
 ---
 

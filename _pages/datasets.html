@@ -1,6 +1,6 @@
 ---
 title: "IAPR TC10/11 Datasets Listing"
-layout: dataset
+layout: datasets_list
 excerpt_separator: <!--more-->
 sitemap: false
 permalink: /datasets/
@@ -54,7 +54,7 @@ function addFilteredElements() {
     var query = getQueryVariable('tag');
     
     {% for dataset in site.datasets %}
-        if (query == null || query == '' || {{ dataset.keywords | jsonify }}.includes(query)) {
+        if (query == null || query == '' || {{ dataset.tags | jsonify }}.includes(query)) {
             element = document.getElementById('{{ dataset.dataset_id }}');
             element.innerHTML = '<div class="dataset_card">\
         			  <div class="dataset_container media"}">\
@@ -75,9 +75,9 @@ function addFilteredElements() {
 					  <b>Topics</b>: <span itemprop="topic">{{ dataset.topic }}</span>\
 					  </p>\
 					  {% endif %}\
-					  {% if dataset.keywords %}\
+					  {% if dataset.tags %}\
 					  <p class="post-meta">\
-					  <b>Keywords</b>: <span itemprop="keywords">{{ dataset.keywords | array_to_sentence_string: "" }}</span>\
+					  <b>Keywords</b>: <span itemprop="keywords">{{ dataset.tags | array_to_sentence_string: "" }}</span>\
 					  </p>\
 					  {% endif %}\
 					  {% if dataset.license %}\

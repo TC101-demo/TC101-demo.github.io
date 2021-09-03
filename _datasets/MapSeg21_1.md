@@ -1,16 +1,24 @@
 ---
-# Should we try to make the layout definition implicit?
-layout: dataset
-# Is this necessary? Should we put the topics and publications instead?
-categories: dataset
-# In the 2020 TC11 website, there is only 1 "topic", but "topics" are arranged in a hierarchical way, like a taxonomy
-# Topic and publication are usually set by the curator in the 2020 TC11 website
-# There may be a page for each topic / publication to describe them (with pictures)
-topic: "Graphical Documents::Maps"
+# There may be a hierarchical browsing available at some point.
+# The order of the categories is important.
+categories:
+  - "Graphical Documents"
+  - "Maps"
 publication: icdar_2021  # there should be an official list of publication ids
 title: ICDAR 2021 Competition on Historical Map Segmentation
-submission_date: 2021-05-27
+dataset_id: 'mapseg21'
 version: 1
+submission_date: 2021-05-27
+# See https://spdx.org/licenses/ to indicate the proper Identifier
+license: 
+  identifier: 'CC-BY-4.0'
+  name: 'Creative Commons Attribution 4.0 International'
+  url_terms: 'https://creativecommons.org/licenses/by/4.0/legalcode'
+tags:
+    - 'historical maps'
+    - 'vectorization'
+    - 'segmentation'
+    - 'segment detection'
 authors: 
   - name: 'Joseph Chazalon'
     email: 'joseph.chazalon(at)lrde.epita.fr'
@@ -20,16 +28,6 @@ authors:
   - name: 'Edwin Carlinet'
     email: 'edwin.carlinet(at)lrde.epita.fr'
     affiliation: 'EPITA Research and Development Laboratory'
-# See https://spdx.org/licenses/ to indicate the proper Identifier
-license: 
-  identifier: 'CC-BY-4.0'
-  name: 'Creative Commons Attribution 4.0 International'
-  url_terms: 'https://creativecommons.org/licenses/by/4.0/legalcode'
-keywords:  # Much like tags?
-    - 'historical maps'
-    - 'vectorization'
-    - 'segmentation'
-    - 'segment detection'
 # Render this automatically in a side bar in the 'dataset' template?
 downloads:
     - filename: 'icdar21-mapseg-v1.0.0-full-20210527a.tar.gz'
@@ -53,8 +51,6 @@ downloads:
       description: 'Code for evaluation tools'
       md5sum: '44b70e7bed9b166f5b38e7fce5f68ad0'
 thumbnail: 'images/MapSeg21_1/177.jpg'
-dataset_id: 'mapseg21'
-# First paragraph by default, should we keep this?
 abstract: 'This is the dataset of the ICDAR 2021 Competition on Historical Map Segmentation (“MapSeg”).'
 ---
 

@@ -1,0 +1,33 @@
+<div class="well">
+<h4>Filtering</h4>
+
+
+
+{% assign topics = "" | split: ',' %}
+{% for dataset in site.datasets %}
+    {% if dataset.tags %}
+        {% assign topics = topics | push: dataset.tags %}
+    {% endif %}
+{% endfor %}
+{% assign topics = topics | uniq | sort %}
+
+<form action="{{ site.baseurl }}/datasets/" method="get">
+  <input type="text" name="q">
+  <input type="submit" value="Search">
+</form>
+
+<br>
+<br>
+
+<h4>All tags</h4>
+
+<p>
+  {% for tag in topics %}
+  <a class="btn btn-default" role="button" href="{{ site.url }}{{ site.baseurl }}?tag={{tag}}">{{ tag }}</a>
+  {% endfor %}
+</p>
+
+
+
+</div>
+

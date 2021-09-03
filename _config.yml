@@ -48,12 +48,14 @@ defaults:
     scope: 
       path: "_datasets/"
     values:
-      layout: dataset
+      layout: dataset_card
       
 
 
 collections:
   datasets:
     output: true
+    permalink: /:collection/:path
+    # layout: dataset
   news:
     output: true
