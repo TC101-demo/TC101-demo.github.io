@@ -1,101 +1,12 @@
 ---
 layout: default
 ---
-<article class="post" itemscope itemtype="http://schema.org/BlogPosting">
 
-  <header class="post-header">
-    <h1 class="post-title" itemprop="name headline">{{ page.title }}</h1>
-    {% if page.thumbnail %}
-    <img src="{{page.thumbnail | relative_url}}" class="img-fluid" alt="Dataset illustration">
-    {% endif %}
-    <p class="post-meta">
-          <time datetime="{{ page.submission_date | date_to_xmlschema }}" 
-              itemprop="datePublished">{{ page.submission_date | date: "%b %-d, %Y" }}
-        </time> •  
-        version <span itemprop="version">{{ page.version }}</span>
-    </p>
-    <p class="post-meta">
-    <b>Authors</b>:
-      <ul>
-        {% for author in page.authors %}
-        <li>
-        <span itemprop="author" itemscope itemtype="http://schema.org/Person">
-          {% if author.name %}<span itemprop="name">{{ author.name }}</span>{% endif %}
-          {% if author.email %}&lt;<a href="mailto:{{ author.email | escape }}"><span itemprop="email">{{ author.email }}</span></a>&gt;{% endif %}
-          {% if autor.affiliation %}<span>{{ author.affiliation }}</span>{% endif %}
-          {% if author.website %}[<a href="{{ author.website | escape }}"><span>website</span></a>]{% endif %}
-          {% if author.orcid %}[<a href="https://orcid.org/{{ author.orcid }}"><span>orcid</span></a>]{% endif %}
-        </span>
-        </li>
-        {% endfor %}
-      </ul>
-    </p>
-    {% if page.keywords %}
-    <p class="post-meta">
-    <b>Keywords</b>: <span itemprop="keywords">{{ page.keywords | array_to_sentence_string: "" }}</span>
-    </p>
-    {% endif %}
-    {% if page.license %}
-    <p class="post-meta">
-     <b>License</b>: <a href="{{ page.license.url_terms }}"><span itemprop="license">{{ page.license.name }}</span></a>
-      {% if page.license.identifier %}
-      (<a href="https://spdx.org/licenses/{{ page.license.identifier }}.html"><span>{{ page.license.identifier }}</span></a>)
-      {% endif %}
-    </p>
-    {% endif %}
-    {% if page.excerpt %}
-    <hr/>
-      <span itemprop="abstract">{{ page.excerpt }}</span>
-    {% endif %}
-  </header>
+  <div id="datasetid" class="col-sm-8">
+        <h1>Data Resources</h1>
 
-  {% if page.downloads %}
-  <!-- DOWNLOAD TABLE BEGIN -->
-  <h2>Downloads</h2>
-  <div class="panel panel-default" id="files">
-    <div class="panel-heading">
-        Files
-    </div>
-    <div>
-    <table class="table table-striped">
-      <thead>
-        <tr class="">
-          <th>Name</th>
-          <th>Size</th>
-          <th>Mirrors</th>
-        </tr>
-      </thead>
-      <tbody>
-        {% for file in page.downloads %}
-        <tr>
-          <td>
-            <a class="filename" href="{{ file.urls[0] }}">{{ file.filename }}</a>
-            {% if file.md5sum %}
-            <br><small class="text-muted nowrap">md5:{{ file.md5sum }} <i class="fa fa-question-circle text-muted" title="This is the file fingerprint (MD5 checksum), which can be used to verify the file integrity."></i></small>
-            {% endif %}
-          </td>
-          <td class="nowrap">{% if file.dl_size %}{{ file.dl_size }}{% endif %}</td>
-          <td><span>
-            {% assign url_counter = 0 %}
-            {% for url_mirror in file.urls %}
-            {% assign url_counter = url_counter | plus: 1 %}
-            <a class="btn btn-xs btn-default" href="{{ url_mirror }}"><i class="fa fa-download"></i> Mirror {{ url_counter }}</a></span>
-            {% endfor %}
-          </td>
-        </tr>
-        {% endfor %}
-      </tbody>
-      </table>
-    </div>
+	{{ content }}
   </div>
-  {% endif %}
-  <!-- DOWNLOAD TABLE END -->
-
-
-
-  <div class="post-content" itemprop="articleBody">
-    <h2>Dataset description</h2>
-    {{ content }}
+  <div id="searchid" class="col-sm-4" >
+	{% include search.html %}
   </div>
-
-</article>

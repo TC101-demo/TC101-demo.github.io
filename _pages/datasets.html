@@ -1,6 +1,6 @@
 ---
 title: "IAPR TC10/11 Datasets Listing"
-layout: gridlay
+layout: dataset
 excerpt_separator: <!--more-->
 sitemap: false
 permalink: /datasets/
@@ -25,44 +25,77 @@ This initiative is not restricted to datasets. We are interested in archiving on
 
 <!--more-->
 
-<h1>Dataset list</h1>
+<h2>Dataset list</h2>
 
 {% for dataset in site.datasets %}
-    <div class="dataset_card">
-        <div class="dataset_container media">
-                <div class="media-left">
-                {% if dataset.thumbnail %}
-                  <a href="{{ dataset.url }}">
-                    <img src="{{dataset.thumbnail | relative_url}}" class="media-object" alt="Dataset illustration">
-                  </a>
-                {% endif %}
-                </div>
-                <div class="media-body">
-                  <a href="{{ dataset.url  }}">
-                  <h4 class="media-heading">{{ dataset.title  }}</h4>
-                  </a>
-                  <em style="vertical-align: middle;">{{ dataset.excerpt }}</em>
-                  {% if dataset.topic %}
-                  <p class="post-meta">
-                  <b>Topics</b>: <span itemprop="topic">{{ dataset.topic }}</span>
-                  </p>
-                  {% endif %}
-                  {% if dataset.keywords %}
-                  <p class="post-meta">
-                  <b>Keywords</b>: <span itemprop="keywords">{{ dataset.keywords | array_to_sentence_string: "" }}</span>
-                  </p>
-                  {% endif %}
-                  {% if dataset.license %}
-                  <p class="post-meta">
-                  <b>License</b>: <a href="{{ dataset.license.url_terms }}"><span itemprop="license">{{ dataset.license.name }}</span></a>
-                  {% if dataset.license.identifier %}
-                  (<a href="https://spdx.org/licenses/{{ dataset.license.identifier }}.html"><span>{{ dataset.license.identifier }}</span></a>)
-                  {% endif %}
-                  </p>
-                  {% endif %}
-                </div>
-        </div>
-    </div>
-    </br>
-    </br>
+    <div id="{{ dataset.dataset_id }}"></div>
 {% endfor %}
+
+
+<!-- Javascript -->     
+
+<script>
+function getQueryVariable(variable) {
+    var query = window.location.search.substring(1),
+      vars = query.split("&");
+
+    for (var i = 0; i < vars.length; i++) {
+      var pair = vars[i].split("=");
+
+      if (pair[0] === variable) {
+        return decodeURIComponent(pair[1].replace(/\+/g, '%20')).trim();
+      }
+    }
+    return ''
+  }
+  
+
+function addFilteredElements() {
+    var query = getQueryVariable('tag');
+    
+    {% for dataset in site.datasets %}
+        if (query == null || query == '' || {{ dataset.keywords | jsonify }}.includes(query)) {
+            element = document.getElementById('{{ dataset.dataset_id }}');
+            element.innerHTML = '<div class="dataset_card">\
+        			  <div class="dataset_container media"}">\
+            			  <div class="media-top">\
+            			      {% if dataset.thumbnail %}\
+			              <a href="{{ dataset.url }}">\
+				          <img src="{{dataset.thumbnail | relative_url}}" class="media-object" alt="Dataset illustration" style="margin-left: auto; margin-right: auto;">\
+				       </a>\
+				       {% endif %}\
+				  </div>\
+				  <div class="media-body">\
+				      <a href="{{ dataset.url  }}">\
+					  <h4 class="media-heading">{{ dataset.title }}</h4>\
+				      </a>\
+				      <em style="vertical-align: middle;">{{ dataset.abstract }}</em>\
+				      {% if dataset.topic %}\
+					  <p class="post-meta">\
+					  <b>Topics</b>: <span itemprop="topic">{{ dataset.topic }}</span>\
+					  </p>\
+					  {% endif %}\
+					  {% if dataset.keywords %}\
+					  <p class="post-meta">\
+					  <b>Keywords</b>: <span itemprop="keywords">{{ dataset.keywords | array_to_sentence_string: "" }}</span>\
+					  </p>\
+					  {% endif %}\
+					  {% if dataset.license %}\
+					  <p class="post-meta">\
+					  <b>License</b>: <a href="{{ dataset.license.url_terms }}"><span itemprop="license">{{ dataset.license.name }}</span></a>\
+					  {% if dataset.license.identifier %}\
+					  (<a href="https://spdx.org/licenses/{{ dataset.license.identifier }}.html"><span>{{ dataset.license.identifier }}</span></a>)\
+					  {% endif %}\
+					  </p>\
+					  {% endif %}\
+				  </div>\
+				  </div>\
+				  </div>\
+				  <br>\
+				  <br>';
+				}
+	{% endfor %}
+}
+ addFilteredElements();
+</script>
+

@@ -53,12 +53,13 @@ downloads:
       description: 'Code for evaluation tools'
       md5sum: '44b70e7bed9b166f5b38e7fce5f68ad0'
 thumbnail: 'images/MapSeg21_1/177.jpg'
+dataset_id: 'mapseg21'
 # First paragraph by default, should we keep this?
-excerpt_separator: <!--more-->
+abstract: 'This is the dataset of the ICDAR 2021 Competition on Historical Map Segmentation (“MapSeg”).'
 ---
 
 This is the dataset of the ICDAR 2021 Competition on Historical Map Segmentation (“MapSeg”).
-<!--more-->
+
 This competition ran from November 2020 to April 2021.
 Evaluation tools are included.
 
