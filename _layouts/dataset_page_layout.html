@@ -5,15 +5,15 @@ layout: default
 
   <header class="post-header">
     <h1 class="post-title" itemprop="name headline">{{ page.title }}</h1>
-    {% if page.thumbnail %}
-    <img src="{{page.thumbnail | relative_url}}" class="img-fluid" alt="Dataset illustration">
-    {% endif %}
-    <p class="post-meta">
+    <p class="post-meta text-muted">
           <time datetime="{{ page.submission_date | date_to_xmlschema }}" 
               itemprop="datePublished">{{ page.submission_date | date: "%b %-d, %Y" }}
         </time> 
         (v. <span itemprop="version">{{ page.version }}</span>)
     </p>
+    {% if page.thumbnail %}
+    <img src="{{page.thumbnail | relative_url}}" class="img-fluid" alt="Dataset illustration">
+    {% endif %}
     <p class="post-meta">
     <b>Authors</b>:
       <ul>
@@ -30,11 +30,6 @@ layout: default
         {% endfor %}
       </ul>
     </p>
-    {% if page.tags %}
-    <p class="post-meta">
-    <b>Tags</b>: <span itemprop="tags">{{ page.tags | array_to_sentence_string: "" }}</span>
-    </p>
-    {% endif %}
     {% if page.license %}
     <p class="post-meta">
      <b>License</b>: <a href="{{ page.license.url_terms }}"><span itemprop="license">{{ page.license.name }}</span></a>
@@ -43,26 +38,29 @@ layout: default
       {% endif %}
     </p>
     {% endif %}
-    {% if page.excerpt %}
-    <hr/>
-      <span itemprop="abstract">{{ page.excerpt }}</span>
+    {% if page.tags %}
+    <p class="post-meta">
+    <b>Tags</b>: <span itemprop="tags">{{ page.tags | array_to_sentence_string: "" }}</span>
+    </p>
     {% endif %}
   </header>
 
   {% if page.downloads %}
   <!-- DOWNLOAD TABLE BEGIN -->
-  <h2>Downloads</h2>
-  <div class="panel panel-default" id="files">
+  <div class="panel panel-primary" id="files">
     <div class="panel-heading">
-        Files
+      <h2 class="panel-title">Downloads</h2>
+      <!-- Files -->
     </div>
-    <div>
+    <!-- <div class="panel-body"></div> -->
     <table class="table table-striped">
       <thead>
         <tr class="">
           <th>Name</th>
           <th>Size</th>
+          <th>Type</th>
           <th>Mirrors</th>
+          <th>Description</th>
         </tr>
       </thead>
       <tbody>
@@ -75,18 +73,19 @@ layout: default
             {% endif %}
           </td>
           <td class="nowrap">{% if file.dl_size %}{{ file.dl_size }}{% endif %}</td>
+          <td class="nowrap">{% if file.type %}{{ file.type }}{% endif %}</td>
           <td><span>
             {% assign url_counter = 0 %}
             {% for url_mirror in file.urls %}
             {% assign url_counter = url_counter | plus: 1 %}
-            <a class="btn btn-xs btn-default" href="{{ url_mirror }}"><i class="fa fa-download"></i> Mirror {{ url_counter }}</a></span>
+            <a class="btn btn-xs btn-default" href="{{ url_mirror }}"><i class="fa fa-download"></i> {{ url_counter }}</a></span>
             {% endfor %}
           </td>
+          <td>{% if file.description %}{{ file.description }}{% endif %}</td>
         </tr>
         {% endfor %}
       </tbody>
       </table>
-    </div>
   </div>
   {% endif %}
   <!-- DOWNLOAD TABLE END -->
@@ -94,7 +93,7 @@ layout: default
 
 
   <div class="post-content" itemprop="articleBody">
-    <h2>Dataset description</h2>
+    <h2>Dataset Information</h2>
     {{ content }}
   </div>
 
