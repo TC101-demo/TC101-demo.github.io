@@ -8,17 +8,25 @@ permalink: /
 
 # Welcome to the IAPR TC10/11 Resource Website
 
-**This is a demo website, not intended for production yet!**
+**⚠ This is a demo website, not intended for production yet. ⚠**
 
-IAPR TC10/11 are the International Association for Pattern Recognition (IAPR) Technical Committees Number 10 and 11. 
-On the one hand, IAPR TC10 promotes interaction among researchers working in document image analysis in general, and graphics recognition in particular.
-On the other hand, IAPR TC11 is concerned with the theory and applications of Reading Systems. 
-Both technical Committees have join forces to provide a library of resources,
-i.e. Datasets, Software, Tools etc. for researchers on the fields of graphics
-recognition and reading systems. We believe that the overlap between these two
-communities can be exploited to push the research in these amazing topics.
+IAPR TC10/11 are the International Association for Pattern Recognition (IAPR) Technical Committees Number 10 (Graphics Recognition) and 11 (Reading Systems).
 
+Please use the navigation bar or the buttons below to **test the features** of this new listing and **please do not forget to [send us feedback]({% link _pages/feedback.html %})**.
 
+Thank you!
+
+<div class="row">
+  <div class="col-xs-12 col-md-4">
+  <a class="btn btn-primary btn-lg btn-block" href="{% link _pages/datasets_list.html %}" role="button">Browse</a>
+  </div>
+  <div class="col-xs-12 col-md-4">
+  <a class="btn btn-primary btn-lg btn-block" href="{% link _pages/submit.md %}" role="button">Contribute</a>
+  </div>
+  <div class="col-xs-12 col-md-4">
+  <a class="btn btn-primary btn-lg btn-block" href="{% link _pages/feedback.html %}" role="button">Send Feedback</a>
+  </div>
+</div>
 
 ---
 
