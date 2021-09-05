@@ -12,6 +12,8 @@ permalink: /
 
 IAPR TC10/11 are the International Association for Pattern Recognition (IAPR) Technical Committees Number 10 (Graphics Recognition) and 11 (Reading Systems).
 
+If you want to know more about this project and our motivations, please check [our dedicated post]({% link _news/2021-09-05-proto-ready.md %}).
+
 Please use the navigation bar or the buttons below to **test the features** of this new listing and **please do not forget to [send us feedback]({% link _pages/feedback.html %})**.
 
 Thank you!

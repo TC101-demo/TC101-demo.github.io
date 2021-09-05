@@ -2,11 +2,12 @@
 <div class="well">
 <h4>News</h4>
 
-{% for article in site.news limit:9 %}
-{{ article.date }}
+{% assign news_sorted = site.news | sort "date" | reverse %}
+{% for article in news_sorted limit:9 %}
+{{ article.date | date_to_string: "ordinal", }}
 <p><a href="{{ site.url }}{{ site.baseurl }}{{article.url}}">{{ article.title }}</a></p>
 {% endfor %}
 
-<h4><a href="{{ site.url }}{{ site.baseurl }}/allnews.html">... see all News</a></h4>
+<h4 class="text-muted"><a href="{{ site.url }}{{ site.baseurl }}/allnews.html">... see all news</a></h4>
 
 </div>
