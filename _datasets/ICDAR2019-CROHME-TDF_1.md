@@ -1,4 +1,5 @@
 ---
+layout: dataset_page  # Required on GitHub pages, needs to be fixed
 title: ICDAR 2019 Competition on Recognition of Handwritten Mathematical Expressions and Typeset Formula Detection
 thumbnail: 'images/ICDAR2019-CROHME-TDF_1/146.jpg'
 abstract: 'This package provides training and test data from the competitions CROHME 2011, 2012, 2013, 2014, 2016 and 2019.'

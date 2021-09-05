@@ -48,7 +48,7 @@ collections:
   datasets:
     output: true
     permalink: /:collection/:path
-    layout: dataset_page
+    # layout: dataset_page  # this does not work
   news:
     output: true
 
