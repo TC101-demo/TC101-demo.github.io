@@ -13,7 +13,17 @@
 	<div class="collapse navbar-collapse" id="navbar-collapse-1">
 	  <ul class="nav navbar-nav navbar-right">
 		{% for item in site.data.navigation.docs %}
-		<li><a href="{{ site.url }}{{ site.baseurl }}/{{ item.url }}">{{ item.title }}</a></li>
+		<li>
+			{% if item.url %}
+			<a href="{{ item.url }}">
+			{% elsif item.file %}
+			<a href="{% link {{ item.file }} %}">
+			{% else %}
+			<a href="#">
+			{% endif %}
+			{{ item.title }}
+			</a>
+		</li>
 	 	{% endfor %}
 	  </ul>
 	</div>
