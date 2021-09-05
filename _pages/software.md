@@ -1,7 +1,6 @@
 ---
 title: "IAPR TC10/11 Tools Listing"
 layout: text
-excerpt_separator: <!--more-->
 sitemap: false
 permalink: /software/
 ---
