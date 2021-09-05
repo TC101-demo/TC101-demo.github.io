@@ -24,4 +24,4 @@ We also realized that zero knowledge about Ruby is necessary to use Jekyll, lowe
 We also tried [MkDocs](https://www.mkdocs.org/) and [HUGO](https://gohugo.io/) but did not manage to get the features we were expecting in a reasonable amount of time.
 
 We hope that the result of our recent efforts, done in parallel with our day-to-day research and teaching, will be of some use to you.
-If this project is of some interest to you, please do not hesitate to provide some [feedback]({% link _pages/feedback.html %}) and [get in touch with us through GitHub](https://github.com/TC101-demo)!
+If this project is of some interest to you, please do not hesitate to provide some [feedback]({% link _pages/feedback.html %}) and get in touch with us [through GitHub](https://github.com/TC101-demo) or by sending as an email to `tc101-demo(at)@googlegroups.com`!
