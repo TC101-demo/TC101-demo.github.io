@@ -7,7 +7,7 @@ permalink: /allnews.html
 
 # News
 
-{% assign news_sorted = site.news | sort "date" | reverse %}
+{% assign news_sorted = site.news | sort: "date" | reverse %}
 {% for article in news_sorted %}
 <p>
 {{ article.date | date_to_string: "ordinal" }} —
