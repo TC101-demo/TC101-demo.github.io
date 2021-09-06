@@ -30,7 +30,7 @@ Please note that **you do not need to be the author of a dataset to submit it**:
    This is a fast option which does not require extensive GitHub mastery, by it still requires a GitHub account and will put more work in curators' hands.
 3. **[Fill our online form](#3-fill-our-online-form)** **FIXME do we have a reliable solution for this? (with support for thumbnail upload)**  
    This option is fairly simple as you just need to answer questions. Processing time will be longer though.
-4. **[Email dataset curators](#4-email-dataset-curators) at `tc101-demo(at)@googlegroups.com`**  
+4. **[Email dataset curators](#4-email-dataset-curators) at `tc101-demo(at)googlegroups.com`**  
    This is probably the simplest option, but also the one which require more work from curators; it may take a week to complete the publishing.
 
 The detailed procedure for each option is detailed in the rest of this page.
@@ -46,7 +46,7 @@ The detailed procedure for each option is detailed in the rest of this page.
 **Any option here?**
 
 ### 4. Email dataset curators
-Please send an email to `tc101-demo(at)@googlegroups.com` with the following content:
+Please send an email to `tc101-demo(at)googlegroups.com` with the following content:
 1. the following template filled
 2. a thumbnail to illustrate this submission
 3. please use the following subject template: "NEW dataset {dataset name}" for a new submission
