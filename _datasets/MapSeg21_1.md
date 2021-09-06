@@ -3,7 +3,7 @@ layout: dataset_page  # Required on GitHub pages, needs to be fixed
 title: ICDAR 2021 Competition on Historical Map Segmentation
 thumbnail: 'images/MapSeg21_1/177.jpg'
 abstract: 'This is the dataset of the ICDAR 2021 Competition on Historical Map Segmentation (“MapSeg”).'
-submission_date: 2021-05-27
+release_date: 2021-05-27
 version: 1
 publication: icdar_2021  # there should be an official list of publication ids
 authors: 

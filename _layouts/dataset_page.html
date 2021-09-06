@@ -7,8 +7,8 @@ layout: default
     <h1 class="post-title" itemprop="name headline">{{ page.title }}</h1>
     <div class="clearfix">
       <div class="post-meta text-muted pull-left">
-            <time datetime="{{ page.submission_date | date_to_xmlschema }}" 
-                itemprop="datePublished">{{ page.submission_date | date: "%b %-d, %Y" }}
+            <time datetime="{{ page.release_date | date_to_xmlschema }}" 
+                itemprop="datePublished">{{ page.release_date | date: "%b %-d, %Y" }}
           </time> 
           (v. <span itemprop="version">{{ page.version }}</span>)
       </div>
