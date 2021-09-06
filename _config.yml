@@ -16,6 +16,8 @@ baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://tc101-demo.github.io"
 twitter_username: FIXME
 github_username:  tc101-demo
+encoding: UTF-8
+
 
 include:
   - .htaccess

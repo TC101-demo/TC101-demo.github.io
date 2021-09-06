@@ -2,7 +2,7 @@
 title: Prototype ready for testing
 tags: release
 layout: post
-date: 2021-09-05
+date: 2021-09-05 16:00:00 +0200
 ---
 Please have a look at this alpha version of this new dataset listing and let us know if we are doing things in the right direction.
 
