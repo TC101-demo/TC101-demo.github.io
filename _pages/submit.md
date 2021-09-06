@@ -13,6 +13,12 @@ permalink: /submit
 🛈 If you want to **fix a dataset or any other page**, please suggest changes on GitHub using the <a class="btn btn-default" role="button" href="{{ site.github_edit_base_url }}/{{ page.path }}"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Edit this page</a> link on top of each page.
 You can also [submit new issues](https://github.com/TC101-demo/TC101-demo.github.io/issues/new/choose) to report any problem, and of course you can review and suggest changes for [any part of the code used to generate this website](https://github.com/TC101-demo/TC101-demo.github.io).
 
+## Dataset Upload
+**Please note that we do not provide support for dataset hosting.**  
+This is intended as services like [Zenodo](https://zenodo.org/) provide great functionality for this purpose: free hosting up to 50GB, DOIs, versioning, GitHub repository archival, [fast and reliable serving](https://about.zenodo.org/infrastructure/), and [much more](https://help.zenodo.org/features/). We also have a [dedicated community](https://zenodo.org/communities/iapr-tc11/): just select the ["new upload"](https://zenodo.org/deposit/new?c=iapr-tc11) button on Zenodo or below.
+
+<a class="btn btn-success" href="#" role="button" target="_blank"><span class="glyphicon glyphicon-open" aria-hidden="true"></span> New Upload to Zenodo</a>
+
 
 ## Submission options
 There are several ways to submit a new item to be included in our listing, as summarized below.  
