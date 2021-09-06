@@ -13,34 +13,31 @@
 # ---------------------------------------------------------------------
 # for each element to add in the navbar, add a new list element with
 # - a "title" element
-# - either a "file" element with the local path to a file (will be properly linked by Jekyll)
-#   or a "url" element for a URL to pass unchanged
+# - a "url" element for a URL to pass unchanged
 
 # Examples
 # - title: Exemple external link
 #   url: https://www.example.com
-# - title: "<mark>Submit new items</mark>"
-#   file: "_pages/submit.md"
 
 
 # Displayed on the left
 actions:
 
 - title: '<span class="glyphicon glyphicon-bullhorn" aria-hidden="true"></span> Send feedback'
-  file: "_pages/feedback.html"
+  url: "/feedback"
 
 - title: '<span class="glyphicon glyphicon-open" aria-hidden="true"></span> Submit new items'
-  file: "_pages/submit.md"
+  url: "/submit"
 
 # Displayed on the right
 docs:
 
 - title: "Home"
-  file: "_pages/home.md"
+  url: "/"
 
 - title: "Datasets"
-  file: "_pages/datasets_list.html"
+  url: "/datasets"
 
 - title: "Software"
-  file: "_pages/software.md"
+  url: "/software"
 

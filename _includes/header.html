@@ -19,8 +19,6 @@
 		  <li>
 			  {% if item.url %}
 			  <a href="{{ item.url }}">
-			  {% elsif item.file %}
-			  <a href="{% link {{ item.file }} %}">
 			  {% else %}
 			  <a href="#">
 			  {% endif %}
@@ -34,8 +32,6 @@
 		<li>
 			{% if item.url %}
 			<a href="{{ item.url }}">
-			{% elsif item.file %}
-			<a href="{% link {{ item.file }} %}">
 			{% else %}
 			<a href="#">
 			{% endif %}
