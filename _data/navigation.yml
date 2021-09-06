@@ -1,5 +1,16 @@
-docs:
+# Navigation bar configuration
+# =====================================================================
 
+
+# Two lists
+# ---------------------------------------------------------------------
+# There are two lists: 
+# - the "actions" list displayed on the left
+# - and the "docs" list displayed on the right
+# The file used to render this is "_includes/header.html"
+
+# Adding elements
+# ---------------------------------------------------------------------
 # for each element to add in the navbar, add a new list element with
 # - a "title" element
 # - either a "file" element with the local path to a file (will be properly linked by Jekyll)
@@ -11,11 +22,21 @@ docs:
 # - title: "<mark>Submit new items</mark>"
 #   file: "_pages/submit.md"
 
+
+# Displayed on the left
+actions:
+
+- title: '<span class="glyphicon glyphicon-bullhorn" aria-hidden="true"></span> Send feedback'
+  file: "_pages/feedback.html"
+
+- title: '<span class="glyphicon glyphicon-open" aria-hidden="true"></span> Submit new items'
+  file: "_pages/submit.md"
+
+# Displayed on the right
+docs:
+
 - title: "Home"
   file: "_pages/home.md"
-
-- title: "<mark>Send feedback</mark>"
-  file: "_pages/feedback.html"
 
 - title: "Datasets"
   file: "_pages/datasets_list.html"
@@ -23,5 +44,3 @@ docs:
 - title: "Software"
   file: "_pages/software.md"
 
-- title: "<mark>Submit new items</mark>"
-  file: "_pages/submit.md"
