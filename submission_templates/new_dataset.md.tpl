@@ -1,8 +1,9 @@
+(Extra line to prevent template parsing, please remove it when you edit this file.)
 ---
 # Please fill all REQUIRED fields.
 # OPT. fields are optional and can safely be removed.
 # This "front matter" section is used to define variables which will be substituted in the templates.
-layout: dataset_page  # REQUIRED on GitHub pages, will be fixed when they adopt Jekyll v4
+layout: dataset_page  # REQUIRED on GitHub pages (please leave it as is), will be fixed when they adopt Jekyll v4
 title: "My dataset of historical glyphs"  # REQUIRED Replace with your dataset title
 thumbnail: 'images/{DATASET_ID}_{DATASET_VERSION}/{FILENAME}'  # REQUIRED Path to the thumbnail image you want to use
 abstract: 'Summary about my dataset.'  # REQUIRED 1- or 2-line summary used in the listing
