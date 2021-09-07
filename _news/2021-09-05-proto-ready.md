@@ -4,7 +4,6 @@ tags: release
 layout: post
 date: 2021-09-05 16:00:00 +0200
 ---
-Please have a look at this alpha version of this new dataset listing and let us know if we are doing things in the right direction.
 
 After many discussions and several unsuccessful attempts, we are pleased to share this new prototype to [gather feedback]({% link _pages/feedback.html %}).
 
