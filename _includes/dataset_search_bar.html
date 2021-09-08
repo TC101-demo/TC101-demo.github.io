@@ -132,7 +132,7 @@ autocomplete(document.getElementById("tagInput"), all_tags);
 
 <p>
   {% for tag in topics | sort %}
-  <a class="btn btn-default btn-xs" role="button" href="{{ site.url }}{{ site.baseurl }}?tag={{tag}}">{{ tag }}</a>
+  <a class="btn btn-default btn-xs" role="button" href="?tag={{tag}}">{{ tag }}</a>
   {% endfor %}
 </p>
 
