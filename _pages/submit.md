@@ -54,7 +54,7 @@ Simply click the button below and fill the form.
 
 Please make sure you attached a thumbnail image to the new issue!
 
-<a class="btn btn-success" href="#" role="button" target="_blank"><span class="glyphicon glyphicon-open" aria-hidden="true"></span> New Issue for New Dataset</a>
+<a class="btn btn-success" href="[#](https://github.com/TC101-demo/TC101-demo.github.io/issues/new?assignees=&labels=new%2Cdataset%2Ctriage&template=new_dataset_submission.yml&title=%5BNew+dataset%5D%3A+)" role="button" target="_blank"><span class="glyphicon glyphicon-open" aria-hidden="true"></span> New Issue for New Dataset</a>
 
 <!-- ### 3. Fill our online form
 **Any option here?** -->
