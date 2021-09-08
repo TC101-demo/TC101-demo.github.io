@@ -7,10 +7,9 @@ permalink: /submit
 ---
 
 # Submit a new item to our listing
-*🛈 Currently, we only offer the option to submit new datasets.*
-*We will soon support the possibility to submit software.*
+**Currently, we only offer the option to submit new datasets.** *We will soon support the possibility to submit software.*
 
-🛈 If you want to **fix a dataset or any other page**, please suggest changes on GitHub using the <a class="btn btn-default" role="button" href="{{ site.github_edit_base_url }}/{{ page.path }}"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Edit this page</a> link on top of each page.
+If you want to **fix a dataset or any other page**, please suggest changes on GitHub using the <a class="btn btn-default" role="button" href="{{ site.github_edit_base_url }}/{{ page.path }}"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Edit this page</a> link on top of each page.
 You can also <a class="btn btn-default" role="button" target="_blank" href="https://github.com/TC101-demo/TC101-demo.github.io/issues/new/choose"><span class="glyphicon glyphicon-bell" aria-hidden="true"></span> Create an issue</a> to report any problem or suggest improvements, and of course you can review and suggest changes for [any part of the code used to generate this website](https://github.com/TC101-demo/TC101-demo.github.io).
 We also welcome any contribution to [documentation](https://github.com/TC101-demo/TC101-demo.github.io/wiki), [issue triage](https://github.com/TC101-demo/TC101-demo.github.io/issues), or any other aspect you can think of.
 
@@ -63,4 +62,4 @@ If you select this option, please complete the following steps:
 3. **Create a thumbnail image** to represent your dataset.
 4. **Email** us at `tc101-demo(at)googlegroups.com` with the subject "New dataset submission {dataset name}" and the two files (page and image) attached.
 
-
+<br>
