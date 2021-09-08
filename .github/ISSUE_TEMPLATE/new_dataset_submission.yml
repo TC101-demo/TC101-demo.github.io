@@ -106,6 +106,7 @@ body:
 
   - type: textarea
     id: license_text
+    attributes:
       label: "License information"
       description: "What is the license of the dataset? If possible, provide URL to terms and/or identifier from https://spdx.org/licenses/."
       placeholder: "Example: Creative Commons Attribution 4.0 International"
