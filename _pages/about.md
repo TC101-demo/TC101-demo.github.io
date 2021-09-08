@@ -6,21 +6,17 @@ sitemap: false
 permalink: /about/
 ---
 
-# Use this website as a template for your academic research group
+# A prototype from IAPR TC10 and TC11
+This website is built as a proof-of-concept to assess the opportunity to move from the [current platform](http://tc11.cvc.uab.es/) to a statically generated website hosted on GitHub Pages.
+Please read our [dedicated post]({% link _news/2021-09-05-proto-ready.md %}) for more details about our motivations.
 
-This website is powered by [Jekyll](https://jekyllrb.com) and uses some [Bootstrap](http://www.getbootstrap.com) and  [Bootswatch](http://www.bootswatch.com). We tried to make it simple yet adaptable, so that it is easy for you to re-use it for your purpose. 
+Contributors from this project include, for now, [Joseph Chazalon](https://github.com/jchazalon), [Pau Riba](https://github.com/priba) and [Muzzamil Luqman](https://github.com/mmluqman).
 
-### Getting started
-All pages are written in [markdown](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet) for easy editing, and [Jekyll](https://jekyllrb.com) uses Liquid for the data-driven pages. The publicaion list, news items, and group members are stored as `.yml` data sheets (plain text) in the `_data folder`, so that one can update the website easily. The pages are in the `_pages` folder. Updating and maintaining is easy using [Github](http://www.github.com) (not worldpress-easy, but there are other advantages (see e.g. [this](https://www.taniarascia.com/make-a-static-website-with-jekyll/), or [this](http://www.webdesignerdepot.com/2015/11/jekyll-against-the-rest-of-the-world/)). [Jekyll](https://jekyllrb.com) takes all the markdown and data files, and creates beautiful `html` files in the `_site` folder.
-
-If you never used [Jekyll](https://jekyllrb.com), read the [wikipedia article](https://en.wikipedia.org/wiki/Jekyll_(software)) article and check out [their website](https://jekyllrb.com). Same for [Github](http://www.github.com), which will host your first website draft. 
+<mark>We welcome contributors</mark> to work on this experiment: please [get in touch with us]({% link _pages/feedback.html %}) to join our team!
 
 
-### Copyright / credit
-
-Comments welcome.
-
-Code released under the MIT License. 
+# Technology
+Please check our [online public GitHub repository](https://github.com/TC101-demo/TC101-demo.github.io) for more details about how this website is generated and how you can contribute to it.
 
 
 
