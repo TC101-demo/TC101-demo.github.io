@@ -1,0 +1,181 @@
+name: New Dataset Submission 
+description: Send us information about a new dataset to add to our listing
+title: "[New dataset]: "
+labels: [new, dataset, triage]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to contribute to our listing!
+
+# Contributor contact information
+  - type: input
+    id: contact
+    attributes:
+      label: Contact Details
+      description: How can we get in touch with you if we need more info?
+      placeholder: ex. email(at)example.com
+    validations:
+      required: false
+
+# Title
+  - type: input
+    id: title
+    attributes:
+      label: Title
+      description: Comprehensive title of the dataset
+      placeholder: "Example: ICDAR 2021 Competition on Historical Map Segmentation"
+    validations:
+      required: true
+
+# Abstract
+   - type: textarea
+     id: abstract
+     attributes:
+       label: Abstract
+       description: "Short description of the dataset, used in summaries."
+       placeholder: 'Example: This is the dataset of the ICDAR 2021 Competition on Historical Map Segmentation (“MapSeg”).'
+     validations:
+       required: true
+
+# Release date
+  - type: input
+    id: release_date
+    attributes:
+      label: "Release date"
+      description: "Original release date of the dataset, in YYYY-MM-DD format please."
+      placeholder: "Example: 2021-09-08"
+    validation:
+      required: true
+
+# Version
+  - type: input
+    id: version
+    attributes:
+      label: "Version"
+      description: "Version of the dataset."
+      placeholder: "Example: 1"
+    validation:
+      required: false
+
+# Eventual publication
+  - type: input
+    id: publication_text
+    attributes:
+      label: "Publication"
+      description: "Was this dataset published in a particular conference?"
+      placeholder: "Example: ICDAR 2021"
+    validation:
+      required: false
+
+# Authors
+  - type: textarea
+    id: authors_text
+    attributes:
+      label: "Author information"
+      description: "Who are the authors of this dataset?"
+      value: |
+        - name: 'Author 1'  # only required line, you can remove the others
+          email: 'email'
+          affiliation: 'Organization'
+          website: 'https://example.com'
+          orcid: 'XXXX-XXXX-XXXX-XXXX'
+        - name: 'Author 2'
+          email: 'email'
+          affiliation: 'Organization'
+      render: yaml
+    validations:
+      required: true
+
+# categories should be provided by curators
+# so we do not offer the option to select them here
+
+# Tags
+  - type: textarea
+    id: tags
+    attributes:
+      label: "Tags"
+      description: "Some tags to describe the dataset"
+      value: |
+        - "tag 1"
+        - "tag 2"
+        - ...
+      render: yaml
+    validations:
+      required: false
+
+  - type: textarea
+    id: license_text
+      label: "License information"
+      description: "What is the license of the dataset? If possible, provide URL to terms and/or identifier from https://spdx.org/licenses/."
+      placeholder: "Example: Creative Commons Attribution 4.0 International"
+      render: yaml
+    validations:
+      required: false
+
+
+# Download urls
+  - type: textarea
+    id: downloads_text
+    attributes:
+      label: "Downloads"
+      description: "Filenames, URLs and descriptions of files"
+      value: |
+        - filename: 'file1'
+          urls: 
+            # You can provide multiple URLs (mirrors) for the exact same file
+            - 'https://example.com/file1'
+          description: 'Some description'
+        - filename: 'file2' # You can add more files
+          urls: 
+            - 'https://example.com/file2'
+          description: 'Some description'
+      render: yaml
+    validations:
+      required: false
+
+# Description
+  - type: textarea
+    id: description_text
+    attributes:
+      label: "Description"
+      description: "A longer description in Markdown format detailing essential information about the dataset."
+      value: |
+        (Feel free to adapt this template to your needs.)
+        Official website: [URL]
+        
+        ### Citing
+        The dataset can be cited as:
+        
+        ```
+        [Raw text citation]
+        ```
+        
+        BibTeX entry:
+        
+        ```bibtex
+        @InProceedings{...
+        }
+        ```
+        
+        ### Acknowledgements
+        We thank ...
+        
+        
+        ### Sources
+        [Did you use previously published material?]
+        
+        ### Motivation
+        This dataset was created to solve [problem statement]
+        
+        
+        ### Task overview
+        [High level description of tasks: inputs, outputs, ground truth, metrics…]
+        
+        ### Evaluation metrics and tools
+        [Are standard evaluation tools available]
+
+      render: markdown
+    validations:
+      required: true
+
