@@ -50,7 +50,11 @@ If you select this option, please complete the following steps:
 5. **Submit** the Pull Request to us.
 
 ### 2. Create an Issue on GitHub
-**TODO create PR template and complete using instructions from https://docs.github.com/en/communities/using-templates-to-encourage-useful-issues-and-pull-requests/configuring-issue-templates-for-your-repository**
+Simply click the button below and fill the form.
+
+Please make sure you attached a thumbnail image to the new issue!
+
+<a class="btn btn-success" href="#" role="button" target="_blank"><span class="glyphicon glyphicon-open" aria-hidden="true"></span> New Issue for New Dataset</a>
 
 <!-- ### 3. Fill our online form
 **Any option here?** -->
