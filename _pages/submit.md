@@ -23,7 +23,7 @@ This is intended as services like [Zenodo](https://zenodo.org/) provide great fu
 
 ## Submission options
 There are **3 ways to submit a new item**, please select your preferred one.  
-Please note that **you do not need to be the author of a dataset to submit it**: every contribution is welcome to make this listing as exhaustive and useful as possible.
+**You do not need to be the author** of a dataset to submit it: every contribution is welcome to make this listing as exhaustive and useful as possible.
 
 1. **[Create a Pull Request (PR) on GitHub](#1-create-a-pull-request-on-github)**  
    This is the **fastest** option to publish a dataset, but it **requires familiarity with GitHub PR workflow** (and a GitHub account).
