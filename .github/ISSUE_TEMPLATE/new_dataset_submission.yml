@@ -45,7 +45,7 @@ body:
       label: "Release date"
       description: "Original release date of the dataset, in YYYY-MM-DD format please."
       placeholder: "Example: 2021-09-08"
-    validation:
+    validations:
       required: true
 
 # Version
@@ -55,7 +55,7 @@ body:
       label: "Version"
       description: "Version of the dataset."
       placeholder: "Example: 1"
-    validation:
+    validations:
       required: false
 
 # Eventual publication
@@ -65,7 +65,7 @@ body:
       label: "Publication"
       description: "Was this dataset published in a particular conference?"
       placeholder: "Example: ICDAR 2021"
-    validation:
+    validations:
       required: false
 
 # Authors
