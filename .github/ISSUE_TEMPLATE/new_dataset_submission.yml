@@ -29,14 +29,14 @@ body:
       required: true
 
 # Abstract
-   - type: textarea
-     id: abstract
-     attributes:
-       label: Abstract
-       description: "Short description of the dataset, used in summaries."
-       placeholder: 'Example: This is the dataset of the ICDAR 2021 Competition on Historical Map Segmentation (“MapSeg”).'
-     validations:
-       required: true
+  - type: textarea
+    id: abstract
+    attributes:
+      label: Abstract
+      description: "Short description of the dataset, used in summaries."
+      placeholder: 'Example: This is the dataset of the ICDAR 2021 Competition on Historical Map Segmentation (“MapSeg”).'
+    validations:
+      required: true
 
 # Release date
   - type: input
