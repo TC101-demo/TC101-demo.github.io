@@ -1,0 +1,170 @@
+---
+layout: layouts/base.njk
+permalink: /submit/
+title: Submit an entry
+description: "Generate a YAML+Markdown entry and open a pull request against the IAPR TC10/TC11 catalog."
+eleventyExcludeFromCollections: true
+---
+<section>
+  <h1>Submit a new entry</h1>
+  <p class="muted">
+    This form runs entirely in your browser. It produces a Markdown file with
+    schema-validated YAML front-matter and offers two ways to submit it:
+    either as a one-click GitHub pull request (recommended) or as a download
+    you can email to the curators.
+  </p>
+
+  <form id="submit-form" class="submit-form" novalidate>
+    <fieldset>
+      <legend>What are you submitting?</legend>
+      <div class="field">
+        <label for="f-kind">Kind</label>
+        <select id="f-kind" name="kind" required>
+          <option value="dataset">Dataset</option>
+          <option value="software">Software / tool</option>
+          <option value="competition">Competition</option>
+        </select>
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend>Basic information</legend>
+      <div class="field">
+        <label for="f-title">Title</label>
+        <input id="f-title" name="title" required minlength="3" maxlength="250" />
+      </div>
+      <div class="field">
+        <label for="f-slug">Slug (file name)</label>
+        <input id="f-slug" name="slug" pattern="[A-Za-z0-9._-]+" required />
+        <p class="hint">Used as the file name. Letters, digits, underscore, dash, dot only.</p>
+      </div>
+      <div class="field">
+        <label for="f-date">Submission date</label>
+        <input id="f-date" name="submission_date" type="date" required />
+      </div>
+      <div class="field" data-kind="dataset,software">
+        <label for="f-version">Version</label>
+        <input id="f-version" name="version" />
+      </div>
+      <div class="field">
+        <label for="f-topic">Topic</label>
+        <select id="f-topic" name="topic" required></select>
+        <p class="hint">From the controlled DIAR vocabulary in <code>src/_data/topics.yml</code>.</p>
+      </div>
+      <div class="field">
+        <label for="f-publication">Publication</label>
+        <select id="f-publication" name="publication">
+          <option value="">— none —</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="f-keywords">Keywords</label>
+        <input id="f-keywords" name="keywords" />
+        <p class="hint">Comma-separated free-text tags.</p>
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend>Authors</legend>
+      <div class="field">
+        <label for="f-authors">Authors (one per line: <code>Name | affiliation | email | ORCID | website</code>)</label>
+        <textarea id="f-authors" name="authors" required></textarea>
+        <p class="hint">Only the name is required on each line; leave other fields empty if unknown.</p>
+      </div>
+    </fieldset>
+
+    <fieldset data-kind="dataset,software">
+      <legend>License</legend>
+      <div class="field">
+        <label for="f-license-id">SPDX identifier</label>
+        <input id="f-license-id" name="license_identifier" placeholder="e.g. CC-BY-4.0, MIT, Apache-2.0" />
+      </div>
+      <div class="field">
+        <label for="f-license-name">License name</label>
+        <input id="f-license-name" name="license_name" />
+      </div>
+      <div class="field">
+        <label for="f-license-url">License URL</label>
+        <input id="f-license-url" name="license_url" type="url" />
+      </div>
+    </fieldset>
+
+    <fieldset data-kind="dataset">
+      <legend>Downloads (datasets)</legend>
+      <div class="field">
+        <label for="f-downloads">Downloads</label>
+        <textarea id="f-downloads" name="downloads" placeholder="One per line:&#10;filename | url | type (dataset|code|paper|tool|model|other) | dl_size | description | md5sum"></textarea>
+        <p class="hint">Pipe-separated. Add a second URL on the same row by separating URLs with commas. <code>md5sum</code> optional but recommended.</p>
+      </div>
+    </fieldset>
+
+    <fieldset data-kind="software">
+      <legend>Software details</legend>
+      <div class="field">
+        <label for="f-repo">Repository URL</label>
+        <input id="f-repo" name="repository_url" type="url" />
+      </div>
+      <div class="field">
+        <label for="f-lang">Languages</label>
+        <input id="f-lang" name="language" placeholder="e.g. Python, C++" />
+      </div>
+      <div class="field">
+        <label for="f-maint">Maintenance status</label>
+        <select id="f-maint" name="maintenance_status">
+          <option value="">—</option>
+          <option>active</option>
+          <option>maintained</option>
+          <option>stale</option>
+          <option>archived</option>
+          <option>unknown</option>
+        </select>
+      </div>
+    </fieldset>
+
+    <fieldset data-kind="competition">
+      <legend>Competition details</legend>
+      <div class="field">
+        <label for="f-tasks">Tasks (one per line: <code>name | description | metrics-comma-list</code>)</label>
+        <textarea id="f-tasks" name="tasks"></textarea>
+      </div>
+      <div class="field">
+        <label for="f-official">Official website</label>
+        <input id="f-official" name="official_website" type="url" />
+      </div>
+      <div class="field">
+        <label for="f-report">Report URL</label>
+        <input id="f-report" name="report_url" type="url" />
+      </div>
+      <div class="field">
+        <label for="f-eval">Evaluation tool URL</label>
+        <input id="f-eval" name="evaluation_tool_url" type="url" />
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend>Description</legend>
+      <div class="field">
+        <label for="f-body">Markdown body</label>
+        <textarea id="f-body" name="body" required rows="8" placeholder="Free-form Markdown description. The first paragraph becomes the excerpt."></textarea>
+      </div>
+    </fieldset>
+
+    <div class="submit-actions">
+      <button class="btn btn--primary" type="button" id="btn-preview">Validate &amp; preview</button>
+      <button class="btn" type="button" id="btn-download" disabled>Download .md</button>
+      <a class="btn" href="#" id="btn-pr" hidden rel="external">Open a GitHub PR with this entry &rarr;</a>
+    </div>
+
+    <div id="errors" role="alert" aria-live="assertive"></div>
+    <div class="submit-preview" id="preview" hidden>
+      <h2>Preview</h2>
+      <p class="muted small">File name: <code id="preview-name"></code></p>
+      <pre id="preview-body"></pre>
+    </div>
+  </form>
+</section>
+
+<script type="application/json" id="topics-data">{{ topics | json | safe }}</script>
+<script type="application/json" id="publications-data">{{ publications | json | safe }}</script>
+<script type="application/json" id="site-data">{{ site | json | safe }}</script>
+<script type="module" src="{{ '/assets/js/submit.js' | url }}"></script>

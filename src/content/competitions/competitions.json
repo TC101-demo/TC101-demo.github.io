@@ -1,0 +1,4 @@
+{
+  "tags": ["competitions", "entries"],
+  "permalink": "/competitions/{{ page.fileSlug }}/"
+}

@@ -1,0 +1,15 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    {% include "partials/head.njk" %}
+    {% if extra_head %}{{ extra_head | safe }}{% endif %}
+  </head>
+  <body>
+    {% include "partials/header.njk" %}
+    <main id="main" class="site-main" data-pagefind-body>
+      {{ content | safe }}
+    </main>
+    {% include "partials/footer.njk" %}
+    {% if extra_scripts %}{{ extra_scripts | safe }}{% endif %}
+  </body>
+</html>

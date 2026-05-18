@@ -1,0 +1,59 @@
+---
+layout: layouts/base.njk
+permalink: /browse/
+title: Browse the catalog
+description: "Search and filter the IAPR TC10/TC11 catalog by topic, publication, license, and artifact type."
+eleventyExcludeFromCollections: true
+---
+<section>
+  <h1>Browse the catalog</h1>
+  <p class="muted">Filter by topic, publication, license, or artifact kind. Search runs entirely in your browser.</p>
+
+  <div class="browse-toolbar">
+    <input type="search" id="q" placeholder="Search title, author, keyword…" aria-label="Search the catalog" />
+    <select id="sort" aria-label="Sort order">
+      <option value="date-desc">Newest first</option>
+      <option value="date-asc">Oldest first</option>
+      <option value="title-asc">Title (A → Z)</option>
+      <option value="title-desc">Title (Z → A)</option>
+    </select>
+    <button class="btn" id="reset-filters" type="button">Reset filters</button>
+  </div>
+
+  <div class="browse-layout">
+    <aside class="browse-sidebar" aria-label="Filters">
+      <h2>Kind</h2>
+      <ul class="facet-list" data-facet="kind">
+        <li><label><input type="checkbox" value="dataset" /> Datasets <span class="count" data-count-for="kind:dataset"></span></label></li>
+        <li><label><input type="checkbox" value="software" /> Software <span class="count" data-count-for="kind:software"></span></label></li>
+        <li><label><input type="checkbox" value="competition" /> Competitions <span class="count" data-count-for="kind:competition"></span></label></li>
+      </ul>
+
+      <h2>Topic</h2>
+      <ul class="facet-list" data-facet="topic_top" id="facet-topic"></ul>
+
+      <h2>Publication</h2>
+      <ul class="facet-list" data-facet="publication" id="facet-publication"></ul>
+
+      <h2>License family</h2>
+      <ul class="facet-list" data-facet="license_family">
+        <li><label><input type="checkbox" value="permissive" /> Permissive <span class="count" data-count-for="license_family:permissive"></span></label></li>
+        <li><label><input type="checkbox" value="share-alike" /> Share-alike <span class="count" data-count-for="license_family:share-alike"></span></label></li>
+        <li><label><input type="checkbox" value="non-commercial" /> Non-commercial <span class="count" data-count-for="license_family:non-commercial"></span></label></li>
+        <li><label><input type="checkbox" value="other" /> Other <span class="count" data-count-for="license_family:other"></span></label></li>
+        <li><label><input type="checkbox" value="unspecified" /> Unspecified <span class="count" data-count-for="license_family:unspecified"></span></label></li>
+      </ul>
+    </aside>
+
+    <section aria-live="polite" aria-busy="false" id="results-region">
+      <p class="muted small" id="result-summary"></p>
+      <div class="browse-results" id="results"></div>
+    </section>
+  </div>
+</section>
+
+<noscript>
+  <p>This browse page requires JavaScript for search and filtering. You can still browse the catalog by following individual entry links from the home page.</p>
+</noscript>
+
+<script type="module" src="{{ '/assets/js/browse.js' | url }}"></script>

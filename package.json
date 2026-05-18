@@ -1,0 +1,28 @@
+{
+  "name": "iapr-tc1011-catalog",
+  "version": "0.1.0",
+  "private": true,
+  "description": "IAPR TC10/TC11 curated catalog of datasets, software, and competitions for the Document Image Analysis and Recognition community.",
+  "license": "MIT",
+  "type": "module",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "validate": "node scripts/validate-entries.mjs",
+    "build:eleventy": "eleventy",
+    "build:pagefind": "pagefind --site _site --output-subdir pagefind",
+    "build": "npm run validate && npm run build:eleventy && npm run build:pagefind",
+    "serve": "eleventy --serve --quiet",
+    "clean": "rimraf _site .cache"
+  },
+  "devDependencies": {
+    "@11ty/eleventy": "^3.0.0",
+    "ajv": "^8.17.1",
+    "ajv-formats": "^3.0.1",
+    "gray-matter": "^4.0.3",
+    "js-yaml": "^4.1.0",
+    "pagefind": "^1.1.1",
+    "rimraf": "^6.0.1"
+  }
+}

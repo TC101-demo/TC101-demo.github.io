@@ -1,0 +1,58 @@
+# Controlled DIAR topic vocabulary.
+# Topic strings used in entry front-matter are joined with "::".
+# Example: topic: "Graphical Documents::Maps"
+
+- name: Handwritten Documents
+  children:
+    - On-line and Off-line
+    - Historical
+    - Signatures
+    - Writer Identification
+- name: Printed Documents
+  children:
+    - Layout Analysis
+    - Logical Structure
+    - Tables
+    - Reading Order
+- name: Scene Text
+  children:
+    - Detection
+    - Recognition
+    - End-to-end
+    - Video Text
+- name: Graphical Documents
+  children:
+    - Maps
+    - Engineering Drawings
+    - Symbols and Logos
+    - Floorplans
+    - Charts and Plots
+    - Comics and Manga
+- name: Mathematical Expressions
+  children:
+    - Handwritten
+    - Typeset
+    - Formula Detection
+- name: Historical Documents
+  children:
+    - Pre-modern Manuscripts
+    - Archival Records
+    - Newspapers
+    - Cadastral Documents
+- name: Born-Digital Documents
+  children:
+    - PDF Mining
+    - Forms
+    - Receipts and Invoices
+- name: Multilingual and Multi-script
+  children:
+    - Latin
+    - CJK
+    - Indic
+    - Arabic and Persian
+    - Hebrew
+    - Other
+- name: Document Question Answering
+  children:
+    - Visual QA
+    - Key Information Extraction

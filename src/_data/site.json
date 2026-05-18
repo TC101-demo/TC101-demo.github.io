@@ -1,0 +1,16 @@
+{
+  "title": "IAPR TC10/TC11 Catalog",
+  "tagline": "Curated datasets, software, and competitions for the Document Image Analysis and Recognition community.",
+  "description": "A community-curated index of datasets, software, and competitions for Document Image Analysis and Recognition (DIAR), maintained by IAPR Technical Committees 10 and 11.",
+  "url": "https://tc101-demo.github.io",
+  "baseurl": "",
+  "repo": "https://github.com/TC101-demo/TC101-demo.github.io",
+  "default_branch": "main",
+  "curators_email": "tc1011-curators@example.org",
+  "navigation": [
+    { "label": "Home", "url": "/" },
+    { "label": "Browse", "url": "/browse/" },
+    { "label": "Submit", "url": "/submit/" },
+    { "label": "About", "url": "/about/" }
+  ]
+}

@@ -1,0 +1,57 @@
+# Registry of DIAR publications referenced by entries.
+# Used by browse facets and entry validation.
+
+- id: icdar_2025
+  conference: ICDAR
+  year: 2025
+  full_name: International Conference on Document Analysis and Recognition 2025
+
+- id: icdar_2024
+  conference: ICDAR
+  year: 2024
+  full_name: International Conference on Document Analysis and Recognition 2024
+
+- id: icdar_2023
+  conference: ICDAR
+  year: 2023
+  full_name: International Conference on Document Analysis and Recognition 2023
+
+- id: icdar_2021
+  conference: ICDAR
+  year: 2021
+  full_name: International Conference on Document Analysis and Recognition 2021
+
+- id: icdar_2019
+  conference: ICDAR
+  year: 2019
+  full_name: International Conference on Document Analysis and Recognition 2019
+
+- id: icdar_2017
+  conference: ICDAR
+  year: 2017
+  full_name: International Conference on Document Analysis and Recognition 2017
+
+- id: icdar_2015
+  conference: ICDAR
+  year: 2015
+  full_name: International Conference on Document Analysis and Recognition 2015
+
+- id: icfhr_2024
+  conference: ICFHR
+  year: 2024
+  full_name: International Conference on Frontiers in Handwriting Recognition 2024
+
+- id: icfhr_2022
+  conference: ICFHR
+  year: 2022
+  full_name: International Conference on Frontiers in Handwriting Recognition 2022
+
+- id: das_2024
+  conference: DAS
+  year: 2024
+  full_name: International Workshop on Document Analysis Systems 2024
+
+- id: das_2022
+  conference: DAS
+  year: 2022
+  full_name: International Workshop on Document Analysis Systems 2022

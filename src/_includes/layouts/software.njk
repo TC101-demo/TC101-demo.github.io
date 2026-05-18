@@ -1,0 +1,72 @@
+---
+layout: layouts/base.njk
+---
+{% set topicParts = topic | topic_path %}
+
+<article class="entry entry--software" data-pagefind-filter="kind:software, topic_top:{{ topic | topic_top }}, license_family:{{ license | license_family }}, publication:{{ publication or 'none' }}">
+  <header class="entry__header">
+    <p class="entry__kind">
+      <span class="pill pill--software">Software</span>
+      {% if publication %}<span class="pill pill--publication">{{ publication | replace('_', ' ') | upper }}</span>{% endif %}
+      {% if maintenance_status %}<span class="pill pill--status pill--status-{{ maintenance_status }}">{{ maintenance_status }}</span>{% endif %}
+    </p>
+    <h1 class="entry__title">{{ title }}</h1>
+
+    <nav class="breadcrumb" aria-label="Topic">
+      {% for part in topicParts %}
+        <span>{{ part }}</span>{% if not loop.last %}<span aria-hidden="true"> :: </span>{% endif %}
+      {% endfor %}
+    </nav>
+
+    <dl class="entry__meta">
+      <dt>Submitted</dt>
+      <dd><time datetime="{{ submission_date | date_iso }}">{{ submission_date | date_human }}</time></dd>
+      {% if version %}<dt>Version</dt><dd>{{ version }}</dd>{% endif %}
+      <dt>Repository</dt>
+      <dd><a href="{{ repository_url }}" rel="external">{{ repository_url }}</a></dd>
+      {% if homepage_url %}<dt>Homepage</dt><dd><a href="{{ homepage_url }}">{{ homepage_url }}</a></dd>{% endif %}
+      {% if package_url %}<dt>Package</dt><dd><a href="{{ package_url }}">{{ package_url }}</a></dd>{% endif %}
+      {% if language %}<dt>Languages</dt><dd>{{ language | join(', ') }}</dd>{% endif %}
+      {% if license %}
+        <dt>License</dt>
+        <dd>
+          <a href="{{ license.url_terms }}">{{ license.name }}</a>
+          {% if license.identifier %}(<a href="https://spdx.org/licenses/{{ license.identifier }}.html">{{ license.identifier }}</a>){% endif %}
+        </dd>
+      {% endif %}
+      <dt>Authors</dt>
+      <dd>
+        <ul class="author-list">
+          {% for author in authors %}
+            <li>
+              {{ author.name }}
+              {% if author.affiliation %}<span class="muted">– {{ author.affiliation }}</span>{% endif %}
+              {% if author.orcid %}<a href="https://orcid.org/{{ author.orcid }}">[ORCID]</a>{% endif %}
+            </li>
+          {% endfor %}
+        </ul>
+      </dd>
+      {% if keywords %}
+        <dt>Keywords</dt>
+        <dd>
+          <ul class="keyword-list">
+            {% for kw in keywords %}<li>{{ kw }}</li>{% endfor %}
+          </ul>
+        </dd>
+      {% endif %}
+      {% if related_datasets %}
+        <dt>Related datasets</dt>
+        <dd>
+          <ul>
+            {% for ds in related_datasets %}<li><a href="{{ ds | url }}">{{ ds }}</a></li>{% endfor %}
+          </ul>
+        </dd>
+      {% endif %}
+    </dl>
+  </header>
+
+  <section class="entry__body">
+    <h2>Description</h2>
+    {{ content | safe }}
+  </section>
+</article>

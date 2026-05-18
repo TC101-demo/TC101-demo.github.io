@@ -1,0 +1,32 @@
+---
+permalink: /feed.xml
+eleventyExcludeFromCollections: true
+---
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>{{ site.title }}</title>
+  <subtitle>{{ site.tagline }}</subtitle>
+  <link href="{{ site.url }}/feed.xml" rel="self"/>
+  <link href="{{ site.url }}/"/>
+  <id>{{ site.url }}/</id>
+  <updated>{{ collections.entries[0].data.submission_date | date_iso }}T00:00:00Z</updated>
+
+  {%- for entry in collections.entries | head(20) %}
+  <entry>
+    <title>{{ entry.data.title | safe }}</title>
+    <link href="{{ site.url }}{{ entry.url }}"/>
+    <id>{{ site.url }}{{ entry.url }}</id>
+    <updated>{{ entry.data.submission_date | date_iso }}T00:00:00Z</updated>
+    <published>{{ entry.data.submission_date | date_iso }}T00:00:00Z</published>
+    <category term="{{ entry.data.kind }}"/>
+    {%- if entry.data.publication %}<category term="{{ entry.data.publication }}"/>{%- endif %}
+    <summary>{{ entry.templateContent | first_paragraph }}</summary>
+    {%- for author in (entry.data.authors or entry.data.organizers or []) %}
+    <author>
+      <name>{{ author.name | safe }}</name>
+      {%- if author.email %}<email>{{ author.email | replace('(at)', '@') }}</email>{%- endif %}
+    </author>
+    {%- endfor %}
+  </entry>
+  {%- endfor %}
+</feed>

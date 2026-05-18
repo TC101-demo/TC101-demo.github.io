@@ -1,0 +1,7 @@
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>{% if title %}{{ title }} – {% endif %}{{ site.title }}</title>
+<meta name="description" content="{{ description or site.description }}" />
+<link rel="icon" href="{{ '/images/ico.ico' | url }}" />
+<link rel="stylesheet" href="{{ '/assets/css/main.css' | url }}" />
+<link rel="alternate" type="application/atom+xml" title="{{ site.title }} – feed" href="{{ '/feed.xml' | url }}" />

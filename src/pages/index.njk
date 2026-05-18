@@ -1,0 +1,80 @@
+---
+layout: layouts/base.njk
+permalink: /
+title: Home
+description: "Curated datasets, software, and competitions for Document Image Analysis and Recognition, maintained by IAPR TC10/TC11."
+---
+<section class="hero">
+  <div>
+    <h1>{{ site.title }}</h1>
+    <p class="lead">{{ site.tagline }}</p>
+    <p>
+      A community-curated index of <strong>datasets</strong>,
+      <strong>software</strong>, and <strong>competitions</strong> for the
+      Document Image Analysis and Recognition (DIAR) community.
+      Each entry is reviewed by a TC10/TC11 curator and links to artifacts
+      hosted on Zenodo, Hugging Face Hub, GitHub, and institutional servers.
+    </p>
+    <div class="hero__actions">
+      <a class="btn btn--primary" href="{{ '/browse/' | url }}">Browse the catalog</a>
+      <a class="btn" href="{{ '/submit/' | url }}">Submit an entry</a>
+      <a class="btn" href="{{ site.repo }}">View source on GitHub</a>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>What this catalog offers</h2>
+  <ul>
+    <li><strong>DIAR-native taxonomy.</strong> Browse by topic
+      (handwritten, scene text, historical documents, graphical
+      documents, mathematical expressions, &hellip;).</li>
+    <li><strong>Publication-anchored navigation.</strong> Filter entries
+      by ICDAR, ICFHR, DAS year.</li>
+    <li><strong>Competitions as first-class objects:</strong> tasks,
+      metrics, evaluation tools, leaderboards.</li>
+    <li><strong>Aggregator, not host.</strong> The catalog records
+      mirrors and integrity hashes; data lives on Zenodo / HF Hub / GitHub.</li>
+    <li><strong>Quality gates:</strong> every PR is schema-validated;
+      a nightly link-checker keeps mirrors honest.</li>
+  </ul>
+</section>
+
+<section class="stat-grid">
+  <div class="stat">
+    <strong>{{ collections.datasets | length }}</strong>
+    <span>Datasets</span>
+  </div>
+  <div class="stat">
+    <strong>{{ collections.software | length }}</strong>
+    <span>Software / tools</span>
+  </div>
+  <div class="stat">
+    <strong>{{ collections.competitions | length }}</strong>
+    <span>Competitions</span>
+  </div>
+  <div class="stat">
+    <strong>{{ collections.entries | length }}</strong>
+    <span>Total entries</span>
+  </div>
+</section>
+
+<section>
+  <h2>Recently added</h2>
+  <div class="browse-results">
+    {% for entry in collections.entries | head(6) %}
+      <article class="entry-card">
+        <h3><a href="{{ entry.url | url }}">{{ entry.data.title }}</a></h3>
+        <div class="entry-card__pills">
+          <span class="pill pill--{{ entry.data.kind }}">{{ entry.data.kind }}</span>
+          {% if entry.data.publication %}<span class="pill pill--publication">{{ entry.data.publication | replace('_', ' ') | upper }}</span>{% endif %}
+        </div>
+        <div class="entry-card__meta">
+          <span>{{ entry.data.submission_date | date_human }}</span>
+          <span>•</span>
+          <span>{{ entry.data.topic | topic_top }}</span>
+        </div>
+      </article>
+    {% endfor %}
+  </div>
+</section>

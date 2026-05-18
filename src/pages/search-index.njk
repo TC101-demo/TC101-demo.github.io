@@ -1,0 +1,30 @@
+---
+permalink: /search-index.json
+eleventyExcludeFromCollections: true
+---
+[
+{%- for entry in collections.entries -%}
+{%- set d = entry.data -%}
+{%- set excerpt = entry.templateContent | first_paragraph -%}
+{%- set authorNames = [] -%}
+{%- for a in d.authors or d.organizers or [] -%}
+  {%- set _ = authorNames.push(a.name) -%}
+{%- endfor -%}
+  {
+    "url": "{{ entry.url }}",
+    "title": {{ d.title | json | safe }},
+    "kind": {{ d.kind | json | safe }},
+    "topic": {{ (d.topic or "") | json | safe }},
+    "topic_top": {{ (d.topic | topic_top) | json | safe }},
+    "publication": {{ (d.publication or "") | json | safe }},
+    "license_family": {{ (d.license | license_family) | json | safe }},
+    "license_id": {{ (d.license.identifier if d.license else "") | json | safe }},
+    "submission_date": {{ (d.submission_date | date_iso) | json | safe }},
+    "year": {{ (d.submission_date | year) | json | safe }},
+    "keywords": {{ (d.keywords or []) | json | safe }},
+    "authors": {{ authorNames | json | safe }},
+    "thumbnail": {{ (d.thumbnail or "") | json | safe }},
+    "excerpt": {{ excerpt | json | safe }}
+  }{% if not loop.last %},{% endif %}
+{%- endfor -%}
+]

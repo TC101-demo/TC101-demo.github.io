@@ -1,0 +1,4 @@
+{
+  "tags": ["datasets", "entries"],
+  "permalink": "/datasets/{{ page.fileSlug }}/"
+}

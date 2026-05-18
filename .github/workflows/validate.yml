@@ -1,0 +1,29 @@
+name: Validate entries
+
+on:
+  pull_request:
+    paths:
+      - 'src/content/**'
+      - 'src/_data/**'
+      - 'schemas/**'
+      - 'scripts/validate-entries.mjs'
+      - 'package*.json'
+      - '.github/workflows/validate.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: npm
+      - run: npm ci
+      - name: Schema-validate every entry
+        run: npm run validate
+      - name: Build (smoke test)
+        run: npm run build:eleventy

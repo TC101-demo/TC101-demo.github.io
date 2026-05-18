@@ -1,0 +1,94 @@
+---
+layout: layouts/base.njk
+---
+{% set topicParts = topic | topic_path %}
+
+<article class="entry entry--competition" data-pagefind-filter="kind:competition, topic_top:{{ topic | topic_top }}, publication:{{ publication or 'none' }}">
+  <header class="entry__header">
+    <p class="entry__kind">
+      <span class="pill pill--competition">Competition</span>
+      {% if publication %}<span class="pill pill--publication">{{ publication | replace('_', ' ') | upper }}</span>{% endif %}
+    </p>
+    <h1 class="entry__title">{{ title }}</h1>
+
+    <nav class="breadcrumb" aria-label="Topic">
+      {% for part in topicParts %}
+        <span>{{ part }}</span>{% if not loop.last %}<span aria-hidden="true"> :: </span>{% endif %}
+      {% endfor %}
+    </nav>
+
+    <dl class="entry__meta">
+      <dt>Date</dt>
+      <dd><time datetime="{{ submission_date | date_iso }}">{{ submission_date | date_human }}</time></dd>
+      {% if official_website %}<dt>Official website</dt><dd><a href="{{ official_website }}" rel="external">{{ official_website }}</a></dd>{% endif %}
+      {% if report_url %}<dt>Competition report</dt><dd><a href="{{ report_url }}">{{ report_url }}</a></dd>{% endif %}
+      {% if evaluation_tool_url %}<dt>Evaluation tool</dt><dd><a href="{{ evaluation_tool_url }}">{{ evaluation_tool_url }}</a></dd>{% endif %}
+      <dt>Organizers</dt>
+      <dd>
+        <ul class="author-list">
+          {% for org in organizers %}
+            <li>
+              {{ org.name }}
+              {% if org.affiliation %}<span class="muted">– {{ org.affiliation }}</span>{% endif %}
+              {% if org.orcid %}<a href="https://orcid.org/{{ org.orcid }}">[ORCID]</a>{% endif %}
+            </li>
+          {% endfor %}
+        </ul>
+      </dd>
+      {% if related_datasets %}
+        <dt>Related datasets</dt>
+        <dd>
+          <ul>
+            {% for ds in related_datasets %}<li><a href="{{ ds | url }}">{{ ds }}</a></li>{% endfor %}
+          </ul>
+        </dd>
+      {% endif %}
+    </dl>
+  </header>
+
+  <section>
+    <h2>Tasks</h2>
+    <ol class="task-list">
+      {% for task in tasks %}
+        <li>
+          <strong>{{ task.name }}</strong>
+          {% if task.description %}<p>{{ task.description }}</p>{% endif %}
+          {% if task.metrics %}<p class="muted small">Metrics: {{ task.metrics | join(', ') }}</p>{% endif %}
+        </li>
+      {% endfor %}
+    </ol>
+  </section>
+
+  {% if leaderboard %}
+    <section>
+      <h2>Leaderboard</h2>
+      <table class="downloads__table">
+        <thead>
+          <tr>
+            <th scope="col">Rank</th>
+            <th scope="col">Team</th>
+            <th scope="col">Task</th>
+            <th scope="col">Metric</th>
+            <th scope="col">Score</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for row in leaderboard %}
+            <tr>
+              <td>{{ row.rank or '—' }}</td>
+              <td>{% if row.reference %}<a href="{{ row.reference }}">{{ row.team }}</a>{% else %}{{ row.team }}{% endif %}</td>
+              <td>{{ row.task }}</td>
+              <td>{{ row.metric }}</td>
+              <td>{{ row.score }}</td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </section>
+  {% endif %}
+
+  <section class="entry__body">
+    <h2>Description</h2>
+    {{ content | safe }}
+  </section>
+</article>

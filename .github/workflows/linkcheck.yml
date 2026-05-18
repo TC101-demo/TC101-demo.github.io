@@ -1,0 +1,45 @@
+name: Nightly link check
+
+# Re-checks every mirror, author website, and ORCID URL referenced by an entry.
+# Opens (or updates) a single GitHub issue when broken links are found.
+
+on:
+  schedule:
+    - cron: '17 4 * * *'   # 04:17 UTC daily
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  linkcheck:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Run lychee
+        id: lychee
+        uses: lycheeverse/lychee-action@v2
+        with:
+          args: |
+            --no-progress
+            --max-concurrency 4
+            --max-retries 2
+            --retry-wait-time 5
+            --accept 200..=299,403,429
+            --exclude '^mailto:'
+            --exclude 'localhost'
+            --exclude '0\\.0\\.0\\.0'
+            './src/content/**/*.md'
+          output: ./lychee-out.md
+          fail: false
+          format: markdown
+
+      - name: Create or update an issue when links are broken
+        if: env.lychee_exit_code != '0'
+        uses: peter-evans/create-issue-from-file@v5
+        with:
+          title: "Broken links detected by nightly catalog scan"
+          content-filepath: ./lychee-out.md
+          labels: broken-mirror, automated

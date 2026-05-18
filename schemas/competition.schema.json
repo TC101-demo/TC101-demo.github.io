@@ -1,0 +1,99 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://tc101-demo.github.io/schemas/competition.schema.json",
+  "title": "IAPR TC10/11 Competition Entry",
+  "description": "Schema for the YAML front-matter of a competition entry under src/content/competitions/.",
+  "type": "object",
+  "required": [
+    "layout",
+    "kind",
+    "title",
+    "submission_date",
+    "publication",
+    "topic",
+    "organizers",
+    "tasks"
+  ],
+  "additionalProperties": true,
+  "properties": {
+    "layout": { "const": "layouts/competition.njk" },
+    "kind": { "const": "competition" },
+    "title": { "type": "string", "minLength": 3, "maxLength": 250 },
+    "submission_date": {
+      "type": "string",
+      "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$"
+    },
+    "publication": {
+      "type": "string",
+      "pattern": "^[a-z]+_[0-9]{4}$"
+    },
+    "topic": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9 ,/&()'+.-]+(?:::[A-Za-z0-9 ,/&()'+.-]+)*$"
+    },
+    "organizers": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["name"],
+        "additionalProperties": false,
+        "properties": {
+          "name": { "type": "string", "minLength": 2 },
+          "email": { "type": "string" },
+          "affiliation": { "type": "string" },
+          "website": { "type": "string", "format": "uri" },
+          "orcid": {
+            "type": "string",
+            "pattern": "^[0-9]{4}-[0-9]{4}-[0-9]{4}-[0-9]{3}[0-9X]$"
+          }
+        }
+      }
+    },
+    "official_website": { "type": "string", "format": "uri" },
+    "report_url": { "type": "string", "format": "uri" },
+    "tasks": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["name"],
+        "additionalProperties": false,
+        "properties": {
+          "name": { "type": "string", "minLength": 1 },
+          "description": { "type": "string" },
+          "metrics": {
+            "type": "array",
+            "items": { "type": "string" }
+          }
+        }
+      }
+    },
+    "related_datasets": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "evaluation_tool_url": { "type": "string", "format": "uri" },
+    "leaderboard": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["team", "task"],
+        "additionalProperties": false,
+        "properties": {
+          "team": { "type": "string" },
+          "task": { "type": "string" },
+          "metric": { "type": "string" },
+          "score": { "type": ["number", "string"] },
+          "rank": { "type": "integer", "minimum": 1 },
+          "reference": { "type": "string", "format": "uri" }
+        }
+      }
+    },
+    "keywords": {
+      "type": "array",
+      "items": { "type": "string", "minLength": 1 }
+    },
+    "thumbnail": { "type": "string" }
+  }
+}
