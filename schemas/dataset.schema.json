@@ -105,6 +105,62 @@
     },
     "doi": { "type": "string" },
     "thumbnail": { "type": "string" },
-    "excerpt_separator": { "type": "string" }
+    "excerpt_separator": { "type": "string" },
+    "data_format": {
+      "type": "object",
+      "description": "Structured description of the dataset's record format. Designed to help readers write data loaders.",
+      "additionalProperties": false,
+      "properties": {
+        "file_types": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "Concrete file extensions / formats actually present, e.g. PNG, JPEG, PDF, INKML, JSON, PAGE-XML, ALTO-XML, hOCR, COCO-JSON."
+        },
+        "annotation_standard": {
+          "type": "string",
+          "description": "Canonical annotation standard if any (PAGE-XML, ALTO-XML, COCO, PASCAL-VOC, hOCR, INKML, custom)."
+        },
+        "gt_tasks": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "DIAR tasks the ground truth is suitable for (OCR, HTR, layout-analysis, baseline-detection, table-recognition, formula-recognition, KIE, DocVQA, ...)."
+        },
+        "splits": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["name"],
+            "additionalProperties": false,
+            "properties": {
+              "name": { "type": "string" },
+              "size": { "type": ["integer", "string"] },
+              "unit": { "type": "string", "description": "e.g. pages, lines, samples" }
+            }
+          }
+        },
+        "directory_structure": {
+          "type": "string",
+          "description": "Multi-line preformatted snippet showing the layout of the archive."
+        },
+        "record": {
+          "type": "string",
+          "description": "Short prose description of what one logical record / sample contains."
+        },
+        "loaders": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["label", "url"],
+            "additionalProperties": false,
+            "properties": {
+              "label": { "type": "string" },
+              "url": { "type": "string", "format": "uri" },
+              "framework": { "type": "string", "description": "e.g. PyTorch, HuggingFace datasets, TensorFlow, plain Python" }
+            }
+          }
+        },
+        "notes": { "type": "string" }
+      }
+    }
   }
 }

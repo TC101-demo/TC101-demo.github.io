@@ -25,6 +25,11 @@ export default function (eleventyConfig) {
       .getFilteredByGlob("src/content/software/*.md")
       .sort(byDateDesc)
   );
+  eleventyConfig.addCollection("models", (api) =>
+    api
+      .getFilteredByGlob("src/content/models/*.md")
+      .sort(byDateDesc)
+  );
   eleventyConfig.addCollection("competitions", (api) =>
     api
       .getFilteredByGlob("src/content/competitions/*.md")
@@ -36,6 +41,7 @@ export default function (eleventyConfig) {
       .getFilteredByGlob([
         "src/content/datasets/*.md",
         "src/content/software/*.md",
+        "src/content/models/*.md",
         "src/content/competitions/*.md",
       ])
       .sort(byDateDesc)

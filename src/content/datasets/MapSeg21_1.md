@@ -46,6 +46,48 @@ downloads:
     description: Code for evaluation tools
     md5sum: 44b70e7bed9b166f5b38e7fce5f68ad0
 thumbnail: /images/MapSeg21_1/177.jpg
+data_format:
+  file_types:
+    - PNG
+    - GeoJSON
+    - JSON
+  annotation_standard: custom
+  gt_tasks:
+    - building-block-segmentation
+    - map-content-segmentation
+    - graticule-intersection-detection
+  splits:
+    - name: train
+      size: 5
+      unit: sheets
+    - name: validation
+      size: 1
+      unit: sheets
+    - name: test
+      size: 3
+      unit: sheets
+  record: >
+    Each sheet is a tile of a Paris atlas (about 8000x6000 pixels at 300 DPI).
+    Ground truth per sheet: a binary mask for map content (PNG), a GeoJSON of
+    building-block polygons, and a JSON list of (x, y) coordinates for
+    graticule intersections.
+  directory_structure: |
+    icdar21-mapseg/
+      train/
+        sheets/*.png         # input map images
+        gt-content/*.png     # binary masks for map content
+        gt-blocks/*.geojson  # building-block polygons
+        gt-grid/*.json       # graticule intersection coordinates
+      val/ ...               # same structure
+      test/ ...              # same structure
+      README.md
+  loaders:
+    - label: Official evaluation tools (Python)
+      url: "https://github.com/icdar21-mapseg/icdar21-mapseg-eval"
+      framework: Python
+  notes: >
+    The dataset is "wide and shallow": few sheets but each one is very large.
+    Most published pipelines tile sheets into ~1024-pixel patches at load time.
 ---
 
 This is the dataset of the ICDAR 2021 Competition on Historical Map Segmentation ("MapSeg").

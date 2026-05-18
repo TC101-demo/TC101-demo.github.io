@@ -1,0 +1,42 @@
+---
+layout: layouts/base.njk
+permalink: /publications/
+title: Publications
+description: "Browse catalog entries by conference and year."
+eleventyExcludeFromCollections: true
+---
+<section>
+  <h1>Publications</h1>
+  <p class="muted">
+    Browse the catalog by conference and year. Each page lists every dataset,
+    software entry, model, and competition associated with the publication.
+  </p>
+
+  {% set conferences = [] %}
+  {% for pub in publications %}
+    {% if pub.conference not in conferences %}{% set _ = conferences.push(pub.conference) %}{% endif %}
+  {% endfor %}
+
+  {% for conference in conferences %}
+    <h2 id="{{ conference | lower }}">{{ conference }}</h2>
+    <div class="browse-results">
+      {% for pub in publications %}
+        {% if pub.conference == conference %}
+          {% set entryCount = 0 %}
+          {% for entry in collections.entries %}
+            {% if entry.data.publication == pub.id %}{% set entryCount = entryCount + 1 %}{% endif %}
+          {% endfor %}
+          <article class="entry-card">
+            <h3><a href="/publications/{{ pub.id }}/">{{ pub.conference }} {{ pub.year }}</a></h3>
+            <div class="entry-card__meta">
+              <span>{{ pub.full_name }}</span>
+            </div>
+            <div class="entry-card__meta">
+              <strong>{{ entryCount }}</strong>&nbsp;<span>linked {{ "entries" if entryCount != 1 else "entry" }}</span>
+            </div>
+          </article>
+        {% endif %}
+      {% endfor %}
+    </div>
+  {% endfor %}
+</section>

@@ -22,6 +22,7 @@ eleventyExcludeFromCollections: true
         <select id="f-kind" name="kind" required>
           <option value="dataset">Dataset</option>
           <option value="software">Software / tool</option>
+          <option value="model">Pre-trained model</option>
           <option value="competition">Competition</option>
         </select>
       </div>
@@ -42,7 +43,7 @@ eleventyExcludeFromCollections: true
         <label for="f-date">Submission date</label>
         <input id="f-date" name="submission_date" type="date" required />
       </div>
-      <div class="field" data-kind="dataset,software">
+      <div class="field" data-kind="dataset,software,model">
         <label for="f-version">Version</label>
         <input id="f-version" name="version" />
       </div>
@@ -73,7 +74,7 @@ eleventyExcludeFromCollections: true
       </div>
     </fieldset>
 
-    <fieldset data-kind="dataset,software">
+    <fieldset data-kind="dataset,software,model">
       <legend>License</legend>
       <div class="field">
         <label for="f-license-id">SPDX identifier</label>
@@ -89,12 +90,36 @@ eleventyExcludeFromCollections: true
       </div>
     </fieldset>
 
-    <fieldset data-kind="dataset">
-      <legend>Downloads (datasets)</legend>
+    <fieldset data-kind="dataset,model">
+      <legend>Downloads</legend>
       <div class="field">
         <label for="f-downloads">Downloads</label>
-        <textarea id="f-downloads" name="downloads" placeholder="One per line:&#10;filename | url | type (dataset|code|paper|tool|model|other) | dl_size | description | md5sum"></textarea>
+        <textarea id="f-downloads" name="downloads" placeholder="One per line:&#10;filename | url | type | dl_size | description | md5sum&#10;Allowed types (dataset): dataset, code, paper, tool, model, other&#10;Allowed types (model): weights, code, paper, model-card, config, other"></textarea>
         <p class="hint">Pipe-separated. Add a second URL on the same row by separating URLs with commas. <code>md5sum</code> optional but recommended.</p>
+      </div>
+    </fieldset>
+
+    <fieldset data-kind="model">
+      <legend>Model details</legend>
+      <div class="field">
+        <label for="f-architecture">Architecture</label>
+        <input id="f-architecture" name="architecture" placeholder="e.g. U-Net (ResNet-34 encoder), TrOCR-Large" />
+      </div>
+      <div class="field">
+        <label for="f-parameters">Parameters</label>
+        <input id="f-parameters" name="parameters" placeholder="e.g. 24M, 350M, 7B" />
+      </div>
+      <div class="field">
+        <label for="f-frameworks">Frameworks</label>
+        <input id="f-frameworks" name="framework_list" placeholder="comma-separated, e.g. PyTorch, ONNX" />
+      </div>
+      <div class="field">
+        <label for="f-base">Base model (optional)</label>
+        <input id="f-base" name="base_model" placeholder="URL or HF Hub id" />
+      </div>
+      <div class="field">
+        <label for="f-tasks">Tasks</label>
+        <input id="f-tasks-model" name="tasks_model" placeholder="comma-separated, e.g. OCR, HTR, layout-analysis" />
       </div>
     </fieldset>
 

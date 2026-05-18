@@ -110,7 +110,7 @@ function readForm() {
     .map((l) => l.trim())
     .filter(Boolean)
     .map(parseAuthorLine);
-  if (obj.kind === "dataset") {
+  if (obj.kind === "dataset" || obj.kind === "model") {
     obj.downloads = String(obj.downloads || "")
       .split("\n")
       .map((l) => l.trim())
@@ -126,6 +126,16 @@ function readForm() {
       .filter(Boolean)
       .map(parseTaskLine);
     obj.organizers = obj.authors;
+  }
+  if (obj.kind === "model") {
+    obj.framework = String(obj.framework_list || "")
+      .split(",")
+      .map((s) => s.trim())
+      .filter(Boolean);
+    obj.tasks_model_list = String(obj.tasks_model || "")
+      .split(",")
+      .map((s) => s.trim())
+      .filter(Boolean);
   }
   obj.keywords = String(obj.keywords || "")
     .split(",")
@@ -208,6 +218,12 @@ function validate(d) {
     if (!d.license_identifier || !d.license_name)
       errs.push("Software entries need an SPDX identifier and a license name.");
   }
+  if (d.kind === "model") {
+    if (!d.license_identifier || !d.license_name)
+      errs.push("Model entries need an SPDX identifier and a license name.");
+    if (!d.downloads || d.downloads.length === 0)
+      errs.push("Models need at least one download (typically weights).");
+  }
   if (d.kind === "competition") {
     if (!d.publication) errs.push("Competitions need a publication id (e.g. icdar_2024).");
     if (!d.tasks || d.tasks.length === 0)
@@ -223,7 +239,7 @@ function build(d) {
     title: d.title,
     submission_date: d.submission_date,
   };
-  if (d.version && (d.kind === "dataset" || d.kind === "software"))
+  if (d.version && (d.kind === "dataset" || d.kind === "software" || d.kind === "model"))
     fm.version = d.version;
   fm.topic = d.topic;
   if (d.publication) fm.publication = d.publication;
@@ -246,6 +262,14 @@ function build(d) {
     if (d.language?.length) fm.language = d.language;
     if (d.maintenance_status) fm.maintenance_status = d.maintenance_status;
   }
+  if (d.kind === "model") {
+    if (d.architecture) fm.architecture = d.architecture;
+    if (d.parameters) fm.parameters = d.parameters;
+    if (d.framework?.length) fm.framework = d.framework;
+    if (d.base_model) fm.base_model = d.base_model;
+    if (d.tasks_model_list?.length) fm.tasks = d.tasks_model_list;
+    fm.downloads = d.downloads;
+  }
   if (d.kind === "competition") {
     fm.tasks = d.tasks;
     if (d.official_website) fm.official_website = d.official_website;
@@ -258,7 +282,11 @@ function build(d) {
 }
 
 function buildPath(d) {
-  const sub = d.kind === "dataset" ? "datasets" : d.kind === "software" ? "software" : "competitions";
+  const sub =
+    d.kind === "dataset" ? "datasets" :
+    d.kind === "software" ? "software" :
+    d.kind === "model" ? "models" :
+    "competitions";
   return `src/content/${sub}/${d.slug}.md`;
 }
 

@@ -23,12 +23,14 @@ const repoRoot = path.resolve(__dirname, "..");
 const SCHEMA_FILES = {
   dataset: path.join(repoRoot, "schemas/dataset.schema.json"),
   software: path.join(repoRoot, "schemas/software.schema.json"),
+  model: path.join(repoRoot, "schemas/model.schema.json"),
   competition: path.join(repoRoot, "schemas/competition.schema.json"),
 };
 
 const CONTENT_DIRS = {
   dataset: "src/content/datasets",
   software: "src/content/software",
+  model: "src/content/models",
   competition: "src/content/competitions",
 };
 

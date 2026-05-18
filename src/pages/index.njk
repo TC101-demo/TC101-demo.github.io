@@ -10,8 +10,8 @@ description: "Curated datasets, software, and competitions for Document Image An
     <p class="lead">{{ site.tagline }}</p>
     <p>
       A community-curated index of <strong>datasets</strong>,
-      <strong>software</strong>, and <strong>competitions</strong> for the
-      Document Image Analysis and Recognition (DIAR) community.
+      <strong>software &amp; models</strong>, and <strong>competitions</strong>
+      for the Document Image Analysis and Recognition (DIAR) community.
       Each entry is reviewed by a TC10/TC11 curator and links to artifacts
       hosted on Zenodo, Hugging Face Hub, GitHub, and institutional servers.
     </p>
@@ -46,8 +46,8 @@ description: "Curated datasets, software, and competitions for Document Image An
     <span>Datasets</span>
   </div>
   <div class="stat">
-    <strong>{{ collections.software | length }}</strong>
-    <span>Software / tools</span>
+    <strong>{{ (collections.software | length) + (collections.models | length) }}</strong>
+    <span>Software &amp; models</span>
   </div>
   <div class="stat">
     <strong>{{ collections.competitions | length }}</strong>

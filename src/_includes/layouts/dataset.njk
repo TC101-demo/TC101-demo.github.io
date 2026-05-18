@@ -109,6 +109,70 @@ layout: layouts/base.njk
     </section>
   {% endif %}
 
+  {% if data_format %}
+    <section class="format-card" aria-labelledby="format-h" data-pagefind-filter="annotation_standard:{{ data_format.annotation_standard or 'unspecified' }}">
+      <h2 id="format-h">Data format</h2>
+      <p class="muted small">Machine-readable description of the dataset's record format, intended to help write a data loader.</p>
+      <dl class="entry__meta format-card__meta">
+        {% if data_format.file_types %}
+          <dt>File types</dt>
+          <dd>
+            <ul class="keyword-list">
+              {% for ft in data_format.file_types %}<li>{{ ft }}</li>{% endfor %}
+            </ul>
+          </dd>
+        {% endif %}
+        {% if data_format.annotation_standard %}
+          <dt>Annotation standard</dt>
+          <dd><code>{{ data_format.annotation_standard }}</code></dd>
+        {% endif %}
+        {% if data_format.gt_tasks %}
+          <dt>Ground-truth tasks</dt>
+          <dd>
+            <ul class="keyword-list">
+              {% for t in data_format.gt_tasks %}<li>{{ t }}</li>{% endfor %}
+            </ul>
+          </dd>
+        {% endif %}
+        {% if data_format.splits %}
+          <dt>Splits</dt>
+          <dd>
+            <ul class="split-list">
+              {% for s in data_format.splits %}
+                <li><strong>{{ s.name }}</strong>{% if s.size %} – {{ s.size }}{% if s.unit %} {{ s.unit }}{% endif %}{% endif %}</li>
+              {% endfor %}
+            </ul>
+          </dd>
+        {% endif %}
+        {% if data_format.record %}
+          <dt>Per-record content</dt>
+          <dd>{{ data_format.record }}</dd>
+        {% endif %}
+      </dl>
+
+      {% if data_format.directory_structure %}
+        <h3>Directory structure</h3>
+        <pre><code>{{ data_format.directory_structure }}</code></pre>
+      {% endif %}
+
+      {% if data_format.loaders %}
+        <h3>Loaders</h3>
+        <ul class="loader-list">
+          {% for ld in data_format.loaders %}
+            <li>
+              <a href="{{ ld.url }}" rel="external">{{ ld.label }}</a>
+              {% if ld.framework %}<span class="pill pill--type">{{ ld.framework }}</span>{% endif %}
+            </li>
+          {% endfor %}
+        </ul>
+      {% endif %}
+
+      {% if data_format.notes %}
+        <p class="muted small">{{ data_format.notes }}</p>
+      {% endif %}
+    </section>
+  {% endif %}
+
   <section class="entry__body" itemprop="description">
     <h2>Description</h2>
     {{ content | safe }}

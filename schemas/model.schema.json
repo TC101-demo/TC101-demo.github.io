@@ -1,0 +1,145 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://tc101-demo.github.io/schemas/model.schema.json",
+  "title": "IAPR TC10/11 Model Entry",
+  "description": "Schema for the YAML front-matter of a pre-trained model entry under src/content/models/.",
+  "type": "object",
+  "required": [
+    "layout",
+    "kind",
+    "title",
+    "submission_date",
+    "topic",
+    "authors",
+    "license",
+    "downloads"
+  ],
+  "additionalProperties": true,
+  "properties": {
+    "layout": { "const": "layouts/model.njk" },
+    "kind": { "const": "model" },
+    "title": { "type": "string", "minLength": 3, "maxLength": 250 },
+    "submission_date": {
+      "type": "string",
+      "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$"
+    },
+    "version": { "type": ["string", "number"] },
+    "topic": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9 ,/&()'+.-]+(?:::[A-Za-z0-9 ,/&()'+.-]+)*$"
+    },
+    "publication": {
+      "type": "string",
+      "pattern": "^[a-z]+_[0-9]{4}$"
+    },
+    "authors": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["name"],
+        "additionalProperties": false,
+        "properties": {
+          "name": { "type": "string", "minLength": 2 },
+          "email": { "type": "string" },
+          "affiliation": { "type": "string" },
+          "website": { "type": "string", "format": "uri" },
+          "orcid": {
+            "type": "string",
+            "pattern": "^[0-9]{4}-[0-9]{4}-[0-9]{4}-[0-9]{3}[0-9X]$"
+          }
+        }
+      }
+    },
+    "license": {
+      "type": "object",
+      "required": ["identifier", "name"],
+      "additionalProperties": false,
+      "properties": {
+        "identifier": { "type": "string" },
+        "name": { "type": "string" },
+        "url_terms": { "type": "string", "format": "uri" }
+      }
+    },
+    "architecture": {
+      "type": "string",
+      "description": "Free-text architecture name (e.g. 'Transformer encoder-decoder', 'ResNet-50', 'TrOCR-Large')."
+    },
+    "framework": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Frameworks for which weights or scripts are provided (PyTorch, TensorFlow, JAX, ONNX, GGUF, ...)."
+    },
+    "base_model": {
+      "type": "string",
+      "description": "Optional URL or HF Hub id of the base model fine-tuned from."
+    },
+    "trained_on": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "URLs or catalog entry slugs (e.g. '/datasets/MapSeg21_1/') of datasets used for training."
+    },
+    "parameters": {
+      "type": "string",
+      "description": "Approximate parameter count, e.g. '350M', '7B'."
+    },
+    "input_modality": {
+      "type": "array",
+      "items": { "enum": ["image", "text", "ink", "audio", "video", "pdf", "other"] }
+    },
+    "output_modality": {
+      "type": "array",
+      "items": { "enum": ["text", "markdown", "html", "latex", "json", "boxes", "polygons", "masks", "other"] }
+    },
+    "tasks": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "DIAR tasks the model is designed for (OCR, HTR, layout-analysis, table-recognition, formula-recognition, KIE, DocVQA, ...)."
+    },
+    "evaluation": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["dataset", "metric", "score"],
+        "additionalProperties": false,
+        "properties": {
+          "dataset": { "type": "string" },
+          "split": { "type": "string" },
+          "metric": { "type": "string" },
+          "score": { "type": ["number", "string"] },
+          "reference": { "type": "string", "format": "uri" }
+        }
+      }
+    },
+    "keywords": {
+      "type": "array",
+      "items": { "type": "string", "minLength": 1 }
+    },
+    "downloads": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["filename", "urls", "type"],
+        "additionalProperties": false,
+        "properties": {
+          "filename": { "type": "string", "minLength": 1 },
+          "urls": {
+            "type": "array",
+            "minItems": 1,
+            "items": { "type": "string", "format": "uri" }
+          },
+          "type": {
+            "enum": ["weights", "code", "paper", "model-card", "config", "other"]
+          },
+          "dl_size": { "type": "string" },
+          "description": { "type": "string" },
+          "md5sum": { "type": "string", "pattern": "^[0-9a-fA-F]{32}$" },
+          "sha256sum": { "type": "string", "pattern": "^[0-9a-fA-F]{64}$" },
+          "doi": { "type": "string" }
+        }
+      }
+    },
+    "thumbnail": { "type": "string" }
+  }
+}

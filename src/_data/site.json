@@ -10,6 +10,7 @@
   "navigation": [
     { "label": "Home", "url": "/" },
     { "label": "Browse", "url": "/browse/" },
+    { "label": "Publications", "url": "/publications/" },
     { "label": "Submit", "url": "/submit/" },
     { "label": "About", "url": "/about/" }
   ]

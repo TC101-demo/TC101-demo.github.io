@@ -1,0 +1,145 @@
+---
+layout: layouts/base.njk
+---
+{% set topicParts = topic | topic_path %}
+
+<article class="entry entry--model" data-pagefind-filter="kind:model, topic_top:{{ topic | topic_top }}, license_family:{{ license | license_family }}, publication:{{ publication or 'none' }}">
+  <header class="entry__header">
+    <p class="entry__kind">
+      <span class="pill pill--model">Model</span>
+      {% if publication %}<span class="pill pill--publication">{{ publication | replace('_', ' ') | upper }}</span>{% endif %}
+      {% if parameters %}<span class="pill pill--params">{{ parameters }}</span>{% endif %}
+    </p>
+    <h1 class="entry__title">{{ title }}</h1>
+
+    <nav class="breadcrumb" aria-label="Topic">
+      {% for part in topicParts %}
+        <span>{{ part }}</span>{% if not loop.last %}<span aria-hidden="true"> :: </span>{% endif %}
+      {% endfor %}
+    </nav>
+
+    {% if thumbnail %}
+      <img class="entry__thumbnail" src="{{ thumbnail | url }}" alt="Illustration of {{ title }}" loading="lazy" />
+    {% endif %}
+
+    <dl class="entry__meta">
+      <dt>Submitted</dt>
+      <dd><time datetime="{{ submission_date | date_iso }}">{{ submission_date | date_human }}</time></dd>
+      {% if version %}<dt>Version</dt><dd>{{ version }}</dd>{% endif %}
+      {% if architecture %}<dt>Architecture</dt><dd>{{ architecture }}</dd>{% endif %}
+      {% if parameters %}<dt>Parameters</dt><dd>{{ parameters }}</dd>{% endif %}
+      {% if framework %}<dt>Framework</dt><dd>{{ framework | join(', ') }}</dd>{% endif %}
+      {% if input_modality or output_modality %}
+        <dt>I/O</dt>
+        <dd>
+          {% if input_modality %}<span>in: {{ input_modality | join(', ') }}</span>{% endif %}
+          {% if input_modality and output_modality %} &rarr; {% endif %}
+          {% if output_modality %}<span>out: {{ output_modality | join(', ') }}</span>{% endif %}
+        </dd>
+      {% endif %}
+      {% if tasks %}<dt>Tasks</dt><dd>{{ tasks | join(', ') }}</dd>{% endif %}
+      {% if base_model %}<dt>Base model</dt><dd><a href="{{ base_model }}" rel="external">{{ base_model }}</a></dd>{% endif %}
+      {% if trained_on %}
+        <dt>Trained on</dt>
+        <dd>
+          <ul>
+            {% for d in trained_on %}<li><a href="{{ d | url }}">{{ d }}</a></li>{% endfor %}
+          </ul>
+        </dd>
+      {% endif %}
+      {% if license %}
+        <dt>License</dt>
+        <dd>
+          <a href="{{ license.url_terms }}">{{ license.name }}</a>
+          {% if license.identifier %}(<a href="https://spdx.org/licenses/{{ license.identifier }}.html">{{ license.identifier }}</a>){% endif %}
+        </dd>
+      {% endif %}
+      <dt>Authors</dt>
+      <dd>
+        <ul class="author-list">
+          {% for author in authors %}
+            <li>
+              {{ author.name }}
+              {% if author.affiliation %}<span class="muted">– {{ author.affiliation }}</span>{% endif %}
+              {% if author.orcid %}<a href="https://orcid.org/{{ author.orcid }}">[ORCID]</a>{% endif %}
+            </li>
+          {% endfor %}
+        </ul>
+      </dd>
+      {% if keywords %}
+        <dt>Keywords</dt>
+        <dd>
+          <ul class="keyword-list">
+            {% for kw in keywords %}<li>{{ kw }}</li>{% endfor %}
+          </ul>
+        </dd>
+      {% endif %}
+    </dl>
+  </header>
+
+  {% if evaluation %}
+    <section aria-labelledby="eval-h">
+      <h2 id="eval-h">Reported evaluation</h2>
+      <table class="downloads__table">
+        <thead>
+          <tr>
+            <th scope="col">Dataset</th>
+            <th scope="col">Split</th>
+            <th scope="col">Metric</th>
+            <th scope="col">Score</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for row in evaluation %}
+            <tr>
+              <td>{% if row.reference %}<a href="{{ row.reference }}">{{ row.dataset }}</a>{% else %}{{ row.dataset }}{% endif %}</td>
+              <td>{{ row.split or '—' }}</td>
+              <td>{{ row.metric }}</td>
+              <td>{{ row.score }}</td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </section>
+  {% endif %}
+
+  {% if downloads %}
+    <section class="downloads" aria-labelledby="downloads-h">
+      <h2 id="downloads-h">Downloads</h2>
+      <table class="downloads__table">
+        <thead>
+          <tr>
+            <th scope="col">File</th>
+            <th scope="col">Type</th>
+            <th scope="col">Size</th>
+            <th scope="col">Mirrors</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for file in downloads %}
+            <tr>
+              <td>
+                <a class="downloads__filename" href="{{ file.urls[0] }}">{{ file.filename }}</a>
+                {% if file.description %}<div class="muted">{{ file.description }}</div>{% endif %}
+                {% if file.md5sum %}<div class="muted small">md5: <code>{{ file.md5sum }}</code></div>{% endif %}
+                {% if file.sha256sum %}<div class="muted small">sha256: <code>{{ file.sha256sum }}</code></div>{% endif %}
+              </td>
+              <td><span class="pill pill--type">{{ file.type }}</span></td>
+              <td>{{ file.dl_size or '—' }}</td>
+              <td>
+                {% for url in file.urls %}
+                  <a class="btn btn--small" href="{{ url }}" rel="external">Mirror {{ loop.index }}</a>
+                {% endfor %}
+              </td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </section>
+  {% endif %}
+
+  <section class="entry__body">
+    <h2>Description</h2>
+    {{ content | safe }}
+  </section>
+</article>

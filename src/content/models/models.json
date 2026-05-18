@@ -1,0 +1,4 @@
+{
+  "tags": ["models", "entries"],
+  "permalink": "/models/{{ page.fileSlug }}/"
+}

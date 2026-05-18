@@ -1,0 +1,77 @@
+---
+layout: layouts/base.njk
+pagination:
+  data: publications
+  size: 1
+  alias: pub
+permalink: "/publications/{{ pub.id }}/"
+eleventyComputed:
+  title: "{{ pub.conference }} {{ pub.year }}"
+  description: "Catalog entries associated with {{ pub.full_name }}."
+eleventyExcludeFromCollections: true
+---
+<section>
+  <p class="entry__kind">
+    <span class="pill pill--publication">{{ pub.conference }} {{ pub.year }}</span>
+  </p>
+  <h1>{{ pub.full_name }}</h1>
+  <p class="muted">
+    Every dataset, software entry, model, and competition in this catalog that
+    is associated with {{ pub.conference }} {{ pub.year }}.
+  </p>
+
+  {% set kinds = [
+    { key: "dataset", label: "Datasets" },
+    { key: "competition", label: "Competitions" },
+    { key: "software", label: "Software" },
+    { key: "model", label: "Models" }
+  ] %}
+
+  {% set total = 0 %}
+  {% for entry in collections.entries %}
+    {% if entry.data.publication == pub.id %}{% set total = total + 1 %}{% endif %}
+  {% endfor %}
+
+  {% if total == 0 %}
+    <p class="no-results">
+      No entries in the catalog are currently associated with this publication.
+      If you have one to contribute, please use the
+      <a href="/submit/">submission form</a>.
+    </p>
+  {% else %}
+    {% for k in kinds %}
+      {% set kindEntries = [] %}
+      {% for entry in collections.entries %}
+        {% if entry.data.publication == pub.id and entry.data.kind == k.key %}
+          {% set _ = kindEntries.push(entry) %}
+        {% endif %}
+      {% endfor %}
+      {% if kindEntries.length > 0 %}
+        <h2>{{ k.label }} ({{ kindEntries.length }})</h2>
+        <div class="browse-results">
+          {% for entry in kindEntries %}
+            <article class="entry-card">
+              <h3><a href="{{ entry.url }}">{{ entry.data.title }}</a></h3>
+              <div class="entry-card__pills">
+                <span class="pill pill--{{ entry.data.kind }}">{{ entry.data.kind }}</span>
+              </div>
+              <div class="entry-card__meta">
+                <span>{{ entry.data.submission_date | date_human }}</span>
+                {% if entry.data.topic %}<span>•</span><span>{{ entry.data.topic | topic_top }}</span>{% endif %}
+              </div>
+              <p class="entry-card__excerpt muted">{{ entry.templateContent | first_paragraph }}</p>
+            </article>
+          {% endfor %}
+        </div>
+      {% endif %}
+    {% endfor %}
+  {% endif %}
+
+  <p class="muted small">
+    Looking for the proceedings themselves?
+    Try
+    <a href="https://dblp.org/search?q={{ pub.conference }}+{{ pub.year }}" rel="external">DBLP</a>
+    or
+    <a href="https://www.semanticscholar.org/search?q={{ pub.conference }}+{{ pub.year }}" rel="external">Semantic Scholar</a>.
+  </p>
+</section>
