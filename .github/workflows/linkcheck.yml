@@ -1,11 +1,9 @@
-name: Nightly link check
+# Manual-only link checker: validates URLs referenced in catalog entries using Lychee.
+# No cron / scheduled runs — invoke from the Actions tab (workflow_dispatch) when needed.
 
-# Re-checks every mirror, author website, and ORCID URL referenced by an entry.
-# Opens (or updates) a single GitHub issue when broken links are found.
+name: Link check (manual)
 
 on:
-  schedule:
-    - cron: '17 4 * * *'   # 04:17 UTC daily
   workflow_dispatch:
 
 permissions:
@@ -36,10 +34,10 @@ jobs:
           fail: false
           format: markdown
 
-      - name: Create or update an issue when links are broken
+      - name: Create issue when links are broken
         if: env.lychee_exit_code != '0'
         uses: peter-evans/create-issue-from-file@v5
         with:
-          title: "Broken links detected by nightly catalog scan"
+          title: "Broken links detected by manual catalog scan"
           content-filepath: ./lychee-out.md
           labels: broken-mirror, automated
