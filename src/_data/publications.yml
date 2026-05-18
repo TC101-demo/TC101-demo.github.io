@@ -20,6 +20,10 @@
   conference: ICDAR
   year: 2021
   full_name: International Conference on Document Analysis and Recognition 2021
+  official_full_title: Proceedings of the 16th International Conference on Document Analysis and Recognition (ICDAR 2021)
+  official_url: "https://icdar2021.org/"
+  venue_when: "September 5–10, 2021"
+  venue_where: "Lausanne, Switzerland"
 
 - id: icdar_2019
   conference: ICDAR

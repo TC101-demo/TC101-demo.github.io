@@ -20,6 +20,11 @@
     "layout": { "const": "layouts/dataset.njk" },
     "kind": { "const": "dataset" },
     "title": { "type": "string", "minLength": 3, "maxLength": 250 },
+    "abstract": {
+      "type": "string",
+      "maxLength": 2000,
+      "description": "Short plain-text teaser for listings, search excerpts, and cards."
+    },
     "submission_date": {
       "type": "string",
       "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$",

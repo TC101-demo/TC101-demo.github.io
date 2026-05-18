@@ -5,7 +5,11 @@ eleventyExcludeFromCollections: true
 [
 {%- for entry in collections.entries -%}
 {%- set d = entry.data -%}
-{%- set excerpt = entry.templateContent | first_paragraph -%}
+{%- if d.abstract %}
+{%- set excerpt = d.abstract %}
+{%- else %}
+{%- set excerpt = entry.templateContent | first_paragraph %}
+{%- endif %}
 {%- set authorNames = [] -%}
 {%- for a in d.authors or d.organizers or [] -%}
   {%- set _ = authorNames.push(a.name) -%}

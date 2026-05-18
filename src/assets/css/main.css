@@ -66,7 +66,15 @@ img { max-width: 100%; height: auto; }
 .site-header__inner {
   max-width: var(--max-width); margin: 0 auto;
   display: flex; align-items: center; justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.5rem 1rem;
   padding: 0.75rem 1rem;
+}
+.site-header__nav-cluster {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.35rem 1.25rem;
 }
 .site-brand { display: inline-flex; gap: 0.5rem; align-items: center; color: var(--fg); font-weight: 600; }
 .site-brand:hover { text-decoration: none; }
@@ -81,8 +89,29 @@ img { max-width: 100%; height: auto; }
   display: inline-block; padding: 0.4rem 0.8rem;
   border-radius: var(--radius); color: var(--fg);
 }
-.site-nav a[aria-current="page"] { background: var(--bg-soft); }
-.site-nav a:hover { background: var(--bg-soft); text-decoration: none; }
+.site-nav__action {
+  font-weight: 600;
+}
+.site-nav--actions .site-nav__action {
+  background: var(--accent);
+  color: var(--accent-fg);
+}
+.site-nav--actions .site-nav__action:hover {
+  filter: brightness(1.06);
+}
+.site-nav--actions .site-nav__action[aria-current="page"] {
+  filter: brightness(0.95);
+}
+.site-nav--primary a[aria-current="page"],
+.site-nav--primary a:hover {
+  background: var(--bg-soft);
+}
+.site-nav--primary a:hover,
+.site-nav--primary a:focus-visible {
+  text-decoration: none;
+}
+.site-nav a[aria-current="page"]:not(.site-nav__action) { background: var(--bg-soft); }
+.site-nav a:hover:not(.site-nav__action) { background: var(--bg-soft); text-decoration: none; }
 
 /* ============================================================== Main */
 .site-main {

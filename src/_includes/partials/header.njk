@@ -5,15 +5,29 @@
       <span class="site-brand__logo" aria-hidden="true">TC</span>
       <span class="site-brand__text">{{ site.title }}</span>
     </a>
-    <nav aria-label="Primary" class="site-nav">
-      <ul>
-        {% for item in site.navigation %}
-          <li>
-            <a href="{{ item.url | url }}"
-               {% if page.url == item.url %}aria-current="page"{% endif %}>{{ item.label }}</a>
-          </li>
-        {% endfor %}
-      </ul>
-    </nav>
+    <div class="site-header__nav-cluster">
+      <nav aria-label="Primary" class="site-nav site-nav--primary">
+        <ul>
+          {% for item in site.navigation %}
+            <li>
+              <a href="{{ item.url | url }}"
+                 {% if page.url == item.url %}aria-current="page"{% endif %}>{{ item.label }}</a>
+            </li>
+          {% endfor %}
+        </ul>
+      </nav>
+      {% if site.nav_actions | length %}
+      <nav aria-label="Shortcuts" class="site-nav site-nav--actions">
+        <ul>
+          {% for item in site.nav_actions %}
+            <li>
+              <a href="{{ item.url | url }}" class="site-nav__action"
+                 {% if page.url == item.url %}aria-current="page"{% endif %}>{{ item.label }}</a>
+            </li>
+          {% endfor %}
+        </ul>
+      </nav>
+      {% endif %}
+    </div>
   </div>
 </header>

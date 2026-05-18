@@ -7,7 +7,7 @@ layout: layouts/base.njk
   "@context": "https://schema.org",
   "@type": "Dataset",
   "name": title,
-  "description": (description or title),
+  "description": (abstract or description or title),
   "datePublished": (submission_date | date_iso),
   "version": (version | string),
   "keywords": keywords,
@@ -24,6 +24,10 @@ layout: layouts/base.njk
       {% if publication %}<span class="pill pill--publication">{{ publication | replace('_', ' ') | upper }}</span>{% endif %}
     </p>
     <h1 class="entry__title" itemprop="name">{{ title }}</h1>
+
+    {% if abstract %}
+      <p class="entry__abstract muted" role="doc-subtitle">{{ abstract }}</p>
+    {% endif %}
 
     <nav class="breadcrumb" aria-label="Topic">
       {% for part in topicParts %}

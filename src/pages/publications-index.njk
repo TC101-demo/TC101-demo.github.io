@@ -31,6 +31,13 @@ eleventyExcludeFromCollections: true
             <div class="entry-card__meta">
               <span>{{ pub.full_name }}</span>
             </div>
+            {% if pub.venue_when or pub.venue_where %}
+              <div class="entry-card__meta muted small">
+                {% if pub.venue_when %}{{ pub.venue_when }}{% endif %}
+                {% if pub.venue_when and pub.venue_where %} · {% endif %}
+                {% if pub.venue_where %}{{ pub.venue_where }}{% endif %}
+              </div>
+            {% endif %}
             <div class="entry-card__meta">
               <strong>{{ entryCount }}</strong>&nbsp;<span>linked {{ "entries" if entryCount != 1 else "entry" }}</span>
             </div>

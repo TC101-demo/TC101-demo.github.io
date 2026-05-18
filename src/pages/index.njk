@@ -35,8 +35,8 @@ description: "Curated datasets, software, and competitions for Document Image An
       metrics, evaluation tools, leaderboards.</li>
     <li><strong>Aggregator, not host.</strong> The catalog records
       mirrors and integrity hashes; data lives on Zenodo / HF Hub / GitHub.</li>
-    <li><strong>Quality gates:</strong> every PR is schema-validated;
-      a nightly link-checker keeps mirrors honest.</li>
+    <li><strong>Quality gates:</strong> every pull request is schema-validated before merge;
+      maintainers occasionally run our link-check workflow to catch regressions.</li>
   </ul>
 </section>
 
@@ -74,6 +74,7 @@ description: "Curated datasets, software, and competitions for Document Image An
           <span>•</span>
           <span>{{ entry.data.topic | topic_top }}</span>
         </div>
+        <p class="entry-card__excerpt muted">{% if entry.data.abstract %}{{ entry.data.abstract }}{% else %}{{ entry.templateContent | first_paragraph }}{% endif %}</p>
       </article>
     {% endfor %}
   </div>

@@ -8,6 +8,9 @@ export default function (eleventyConfig) {
 
   eleventyConfig.addPassthroughCopy({ "src/assets": "assets" });
   eleventyConfig.addPassthroughCopy({ "images": "images" });
+  eleventyConfig.addPassthroughCopy({
+    submission_templates: "submission_templates",
+  });
 
   eleventyConfig.addWatchTarget("src/assets/");
   eleventyConfig.addWatchTarget("schemas/");

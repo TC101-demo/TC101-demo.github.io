@@ -5,13 +5,19 @@
   "url": "https://tc101-demo.github.io",
   "baseurl": "",
   "repo": "https://github.com/TC101-demo/TC101-demo.github.io",
-  "default_branch": "main",
-  "curators_email": "tc1011-curators@example.org",
+  "default_branch": "master",
+  "curators_email": "tc101-demo@googlegroups.com",
+  "curators_email_human": "tc101-demo(at)googlegroups.com",
+  "feedback_form_url": "https://docs.google.com/forms/d/e/1FAIpQLSclHd7tvw7R2OSQlNGNah27GjCB77IkznCRPDBItM8sMbMHHg/viewform",
   "navigation": [
     { "label": "Home", "url": "/" },
     { "label": "Browse", "url": "/browse/" },
     { "label": "Publications", "url": "/publications/" },
-    { "label": "Submit", "url": "/submit/" },
+    { "label": "Software", "url": "/software/" },
     { "label": "About", "url": "/about/" }
+  ],
+  "nav_actions": [
+    { "label": "Submit", "url": "/submit/" },
+    { "label": "Feedback", "url": "/feedback/" }
   ]
 }

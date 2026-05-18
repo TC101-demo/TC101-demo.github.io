@@ -15,6 +15,19 @@ eleventyExcludeFromCollections: true
     <span class="pill pill--publication">{{ pub.conference }} {{ pub.year }}</span>
   </p>
   <h1>{{ pub.full_name }}</h1>
+  {% if pub.official_full_title %}
+    <p class="muted">{{ pub.official_full_title }}</p>
+  {% endif %}
+  {% if pub.venue_when or pub.venue_where %}
+    <p class="muted small">
+      {% if pub.venue_when %}{{ pub.venue_when }}{% endif %}
+      {% if pub.venue_when and pub.venue_where %} · {% endif %}
+      {% if pub.venue_where %}{{ pub.venue_where }}{% endif %}
+    </p>
+  {% endif %}
+  {% if pub.official_url %}
+    <p><a href="{{ pub.official_url }}" rel="external">{{ pub.official_url }}</a></p>
+  {% endif %}
   <p class="muted">
     Every dataset, software entry, model, and competition in this catalog that
     is associated with {{ pub.conference }} {{ pub.year }}.
@@ -59,7 +72,7 @@ eleventyExcludeFromCollections: true
                 <span>{{ entry.data.submission_date | date_human }}</span>
                 {% if entry.data.topic %}<span>•</span><span>{{ entry.data.topic | topic_top }}</span>{% endif %}
               </div>
-              <p class="entry-card__excerpt muted">{{ entry.templateContent | first_paragraph }}</p>
+              <p class="entry-card__excerpt muted">{% if entry.data.abstract %}{{ entry.data.abstract }}{% else %}{{ entry.templateContent | first_paragraph }}{% endif %}</p>
             </article>
           {% endfor %}
         </div>

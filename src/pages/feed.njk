@@ -20,7 +20,7 @@ eleventyExcludeFromCollections: true
     <published>{{ entry.data.submission_date | date_iso }}T00:00:00Z</published>
     <category term="{{ entry.data.kind }}"/>
     {%- if entry.data.publication %}<category term="{{ entry.data.publication }}"/>{%- endif %}
-    <summary>{{ entry.templateContent | first_paragraph }}</summary>
+    <summary>{% if entry.data.abstract %}{{ entry.data.abstract }}{% else %}{{ entry.templateContent | first_paragraph }}{% endif %}</summary>
     {%- for author in (entry.data.authors or entry.data.organizers or []) %}
     <author>
       <name>{{ author.name | safe }}</name>

@@ -2,6 +2,9 @@
 layout: layouts/dataset.njk
 kind: dataset
 title: ICDAR 2021 Competition on Historical Map Segmentation
+abstract: >-
+  Dataset of the ICDAR 2021 Competition on Historical Map Segmentation (“MapSeg”):
+  segmented map sheets with building blocks, map-content masks, and graticule points.
 submission_date: "2021-05-27"
 version: "1"
 topic: "Graphical Documents::Maps"

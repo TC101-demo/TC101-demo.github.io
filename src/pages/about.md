@@ -2,59 +2,56 @@
 layout: layouts/page.njk
 permalink: /about/
 title: About this catalog
+description: Purpose, curator workflow, prototypes, contributors, acknowledgements — IAPR TC10/TC11 catalog hosted on GitHub Pages.
 ---
 
 ## Mission
 
-The IAPR TC10/TC11 catalog is a community-curated index of artifacts that
-support reproducible research in the Document Image Analysis and Recognition
-(DIAR) field.
+The catalog is stewarded collaboratively by collaborators from IAPR **TC10** and **[TC11 (Intelligent Reading Systems)](http://tc11.cvc.uab.es/)**, for the broader **Document Image Analysis and Recognition** (DIAR) community.
 
-IAPR TC10 promotes interaction among researchers working in document image
-analysis in general, and graphics recognition in particular. IAPR TC11 is
-concerned with the theory and applications of Reading Systems. Together they
-maintain this catalog as a service to the community.
+- **TC10** emphasises interoperability among researchers working at the intersection of document imaging and graphical pattern recognition.
+- **TC11** emphasises architectures, corpora and evaluation for machine reading pipelines.
+
+Together the committees aggregate pointers so researchers can relocate datasets, tooling, evaluations and reproducibility artefacts efficiently.
+
+## Where this prototype came from
+
+Maintainers experimented with statically generated hubs on GitHub Pages to reduce friction submitting datasets and ancillary material while narrowing security exposure compared with classic dynamic CMS stacks. **[Read our September 2021 motivation note](/news/2021-09-05-prototype-ready/)** describing the rationale (adapted wording from the inaugural Jekyll era — the generator stack is Eleventy today).
+
+Contributors to this experiment include **[Joseph Chazalon](https://github.com/jchazalon), [Pau Riba](https://github.com/priba),** and **[Muzzamil Luqman](https://github.com/mmluqman)**.
+
+<strong>Interested in collaborating?</strong> Visit **[Feedback](/feedback/)** — issues, curated survey links, mailing list hints — or mention desired scope in a **[GitHub issue]({{ site.repo }}/issues)**.
 
 ## Scope
 
-We catalog four kinds of artifact:
+Artifacts fall into controlled kinds:
 
-- **Datasets** with their ground truth, evaluation protocols, and download
-  mirrors.
-- **Software** — annotation tools, evaluation libraries, reference
-  implementations.
-- **Competitions** with their tasks, metrics, evaluation tools, and
-  leaderboards.
-- **Papers and reports** that accompany the above (as linked downloads,
-  not standalone entries).
+| Kind | Highlights |
+|---|---|
+| **Datasets** | Ground truth, manifests, mirrored downloads, integrity hashes (`md5` / optional `sha256`). |
+| **Software & tooling** | Evaluation kits, preprocessing libraries, annotated-tooling front-ends (`/software/` summarizes navigation). |
+| **Pre-trained models** | Canonical weights plus model-cards & provenance anchors. |
+| **Competitions** | Challenges, leaderboard pointers, organisers, artefacts. |
 
-We do not host data ourselves: each entry links to artifacts hosted on
-Zenodo, Hugging Face Hub, GitHub, or institutional servers. Where multiple
-mirrors exist we record them all, together with integrity hashes (md5 or
-sha256).
+The catalog **indexes** artefacts on Zenodo, Hugging Face Hub, institutional SFTP buckets, institutional Git servers, &c. — blobs **do not** live exclusively inside Pages output.
 
-## How curation works
+Standalone academic papers generally appear as **downloads** referencing an entry—not as lone catalog records.
 
-1. A contributor opens a pull request with a new entry (a markdown file
-   with YAML front-matter), or uses the [submission form]({{ '/submit/' | url }}).
-2. Continuous integration validates the front-matter against our JSON
-   Schemas and runs a quick link check.
-3. A TC curator reviews the entry for scope, taxonomy fit, and metadata
-   quality before merging.
-4. A nightly job re-checks every mirror; broken links open a GitHub issue
-   for the maintainers.
+## Curation lifecycle
 
-## How to contribute
+1. Contributors either open **[pull requests]({{ site.repo }}/pulls)**, **[submissions guided in-browser](/submit/)**, curated **[Issues]({{ site.repo }}/issues/new/choose)** (datasets), or email **`{{ site.curators_email_human }}`** for heavy attachments.
+2. Continuous integration asserts JSON Schema validity for Markdown front matter and ancillary cross-check scripts.
+3. A TC curator reviews scope, taxonomy fit, mirror health, licences, duplication.
+4. Link monitoring is **manual** / workflow dispatched by maintainers (not nightly automation today).
 
-- **Browse first.** [Search the catalog]({{ '/browse/' | url }}) to make
-  sure your dataset is not already listed.
-- **Submit** via the [guided form]({{ '/submit/' | url }}) — it generates
-  the YAML and offers a one-click GitHub PR.
-- **Report a problem** by opening an
-  [issue]({{ site.repo }}/issues/new).
+Further historical workflow commentary lives in the **[submission guide](/submit/guide/)**.
+
+### Technology
+
+The static site ships via **[Eleventy](https://www.11ty.dev/)**. Client-side search uses **[Pagefind](https://pagefind.app)** with a supplementary JSON **`/search-index.json`** powering fallback filtering on **Browse**.
+
+Source hub: **`{{ site.repo }}`**.
 
 ## Acknowledgements
 
-This site is built with [Eleventy](https://www.11ty.dev/) and
-[Pagefind](https://pagefind.app/). The IAPR-TC11 Zenodo community hosts
-many of the indexed competition datasets.
+Thanks are due to organisers of longstanding TC11 infrastructures and dataset hosting communities—especially collaborators seeding IAPR artefacts on **[Zenodo’s IAPR-TC11 community collection](https://zenodo.org/communities/iapr-tc11)**.
